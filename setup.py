@@ -23,5 +23,16 @@ setup(
     ],
     install_requires=install_requires,
     python_requires=">=3.9",
-    extras_require={"dev": ["pytest"]},
+    extras_require={
+        "dev": ["pytest"],
+        "doc": [
+            "markdown",
+            "mkdocs-material",
+            "pymdown-extensions",
+            "mkdocstrings",
+            "mkdocs-gen-files",
+            "mkdocs-literate-nav",
+            "mkdocstrings-python",
+        ],
+    },
 )
