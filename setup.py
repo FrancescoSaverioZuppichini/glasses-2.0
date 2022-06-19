@@ -24,7 +24,7 @@ setup(
     install_requires=install_requires,
     python_requires=">=3.9",
     extras_require={
-        "dev": ["pytest"],
+        "dev": ["pytest", "flake8"],
         "doc": [
             "markdown",
             "mkdocs-material",
