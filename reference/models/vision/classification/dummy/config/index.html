@@ -1322,6 +1322,120 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Models" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Vision
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vision" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Vision
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_1" type="checkbox" id="__nav_5_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_1">
+          Classification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Classification" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Classification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../models/vision/classification/dummy/" class="md-nav__link">
+        Dummy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1436,6 +1550,8 @@
       <p class="doc doc-class-bases">
         Bases: <code><a class="autorefs autorefs-internal" title="glasses.models.vision.classification.common.AnyModelForClassificationConfig" href="../../common/config/#glasses.models.vision.classification.common.config.AnyModelForClassificationConfig">AnyModelForClassificationConfig</a></code></p>
 
+  
+      <p>Config for <a href="/models/vision/classification/dummy"><code>Dummy</code></a> model</p>
 
 
         <details class="quote">
@@ -1443,10 +1559,14 @@
           <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nd">@dataclass</span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nd">@dataclass</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">class</span> <span class="nc">DummyForClassificationConfig</span><span class="p">(</span><span class="n">AnyModelForClassificationConfig</span><span class="p">):</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">backbone_config</span><span class="p">:</span> <span class="n">DummyConfig</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">head_config</span><span class="p">:</span> <span class="n">LinearHeadConfig</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="sd">&quot;&quot;&quot;Config for [`Dummy`](/models/vision/classification/dummy) model&quot;&quot;&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">backbone_config</span><span class="p">:</span> <span class="n">DummyConfig</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">head_config</span><span class="p">:</span> <span class="n">LinearHeadConfig</span>
 </code></pre></div></td></tr></table></div>
         </details>
 
