@@ -2,10 +2,10 @@ from dataclasses import dataclass
 from torch import nn
 from ..outputs import ModelForClassificationOutput
 from glasses.config import ConfigMixin, Config
-from glasses.models.vision.backbones.config_map import (
+from glasses.models.vision.backbones.configs_to_models import (
     CONFIGS_TO_MODELS as BACKBONE_CONFIGS_TO_MODELS,
 )
-from ..heads.config_map import CONFIGS_TO_MODELS as HEADS_CONFIGS_TO_MODELS
+from ..heads.configs_to_models import CONFIGS_TO_MODELS as HEADS_CONFIGS_TO_MODELS
 
 from .config import AnyModelForClassificationConfig
 
