@@ -27,6 +27,7 @@ setup(
         "dev": ["pytest", "flake8"],
         "doc": [
             "markdown",
+            "mkdocs-autorefs",
             "mkdocs-material",
             "pymdown-extensions",
             "mkdocstrings",

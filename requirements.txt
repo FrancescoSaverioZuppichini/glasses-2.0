@@ -9,3 +9,4 @@ open-python
 matplotlib
 einops
 rich
+huggingface_hub

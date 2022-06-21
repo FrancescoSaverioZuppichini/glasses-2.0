@@ -31,6 +31,7 @@ nav:
 
 plugins:
   - search
+  - autorefs
   - gen-files:
       scripts:
         - docs/gen_ref_pages.py #

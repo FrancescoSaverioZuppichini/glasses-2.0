@@ -1,4 +1,4 @@
-from glasses.Config import Config
+from glasses.config import Config
 from dataclasses import dataclass
 
 

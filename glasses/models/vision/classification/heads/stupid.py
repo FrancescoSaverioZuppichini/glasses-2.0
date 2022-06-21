@@ -1,8 +1,8 @@
 from torch import nn
-from glasses.Configurable import Configurable
+from glasses.config import ConfigMixin
 
 from glasses.models.vision.classification.outputs import ModelOutputForClassification
-from .HeadForClassification import HeadForClassification
+from .base import HeadForClassification
 from typing import List
 from torch import Tensor
 
@@ -14,7 +14,7 @@ class StupidHeadConfig:
     foo: str
 
 
-class StupidHead(Configurable):
+class StupidHead(HeadForClassification, ConfigMixin):
     def __init__(self, foo: str):
         super().__init__()
 

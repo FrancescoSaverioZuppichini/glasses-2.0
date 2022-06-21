@@ -1,8 +1,8 @@
 from torch import nn
-from glasses.Configurable import Configurable
+from glasses.config import ConfigMixin
 
 from glasses.models.vision.classification.outputs import ModelOutputForClassification
-from .HeadForClassification import HeadForClassification
+from .base import HeadForClassification
 from typing import List
 from torch import Tensor
 
@@ -15,7 +15,7 @@ class LinearHeadConfig:
     in_channels: int
 
 
-class LinearHead(HeadForClassification, Configurable):
+class LinearHead(HeadForClassification, ConfigMixin):
     def __init__(self, num_classes: int, in_channels: int):
         super().__init__()
         self.pool = nn.AdaptiveAvgPool2d((1, 1))
