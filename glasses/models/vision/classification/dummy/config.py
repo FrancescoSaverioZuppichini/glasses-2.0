@@ -7,5 +7,7 @@ from ..common import AnyModelForClassificationConfig
 
 @dataclass
 class DummyForClassificationConfig(AnyModelForClassificationConfig):
+    """Config for [`Dummy`](/models/vision/classification/dummy) model"""
+
     backbone_config: DummyConfig
     head_config: LinearHeadConfig

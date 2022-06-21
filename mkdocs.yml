@@ -28,6 +28,7 @@ nav:
   - Getting Started: getting_started.md
   - Contributing: contributing.md
   - Code Reference: reference/
+  - Models: models/
 
 plugins:
   - search
