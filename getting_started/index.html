@@ -453,34 +453,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reference/models/auto/config/" class="md-nav__link">
-        config
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reference/models/auto/models/" class="md-nav__link">
-        models
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -724,8 +696,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/models/vision/classification/auto/" class="md-nav__link">
-        auto
+      <a href="../reference/models/vision/classification/" class="md-nav__link">
+        Index
       </a>
     </li>
   
@@ -747,12 +719,101 @@
       
       
         <label class="md-nav__link" for="__nav_4_1_3_3_3_2">
+          auto
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="auto" data-md-level="6">
+        <label class="md-nav__title" for="__nav_4_1_3_3_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          auto
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/models/vision/classification/auto/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/models/vision/classification/auto/auto/" class="md-nav__link">
+        auto
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/models/vision/classification/auto/configs_to_models/" class="md-nav__link">
+        configs_to_models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/models/vision/classification/auto/names_to_configs/" class="md-nav__link">
+        names_to_configs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1_3_3_3_3" type="checkbox" id="__nav_4_1_3_3_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1_3_3_3_3">
           common
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="common" data-md-level="6">
-        <label class="md-nav__title" for="__nav_4_1_3_3_3_2">
+        <label class="md-nav__title" for="__nav_4_1_3_3_3_3">
           <span class="md-nav__icon md-icon"></span>
           common
         </label>
@@ -802,20 +863,6 @@
           
         </ul>
       </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reference/models/vision/classification/config_map/" class="md-nav__link">
-        config_map
-      </a>
     </li>
   
 
@@ -1085,6 +1132,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/storage/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/storage/base/" class="md-nav__link">
         base
       </a>
@@ -1224,7 +1285,16 @@
 
   <h1>Getting Started</h1>
 
+<div class="termy">
 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">$</span> <span class="n">AutoModel</span><span class="p">()</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;my_name&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">[</span><span class="mi">06</span><span class="o">/</span><span class="mi">21</span><span class="o">/</span><span class="mi">22</span> <span class="mi">18</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">40</span><span class="p">]</span> <span class="n">WARNING</span>  <span class="n">Error</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="n">loading</span> <span class="n">state_dict</span> <span class="k">for</span> <span class="n">AnyModelForClassification</span><span class="p">:</span>                                         <span class="n">base</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">54</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                                     <span class="n">Unexpected</span> <span class="n">key</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">in</span> <span class="n">state_dict</span><span class="p">:</span> <span class="s2">&quot;head.fc.weight&quot;</span><span class="p">,</span> <span class="s2">&quot;head.fc.bias&quot;</span><span class="o">.</span>                                      
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                    <span class="n">INFO</span>     <span class="n">Loaded</span> <span class="n">pretrained</span> <span class="n">weights</span> <span class="k">for</span> <span class="n">dummy</span><span class="o">-</span><span class="n">d0</span><span class="o">.</span>      
+</code></pre></div>
+
+</div>
 
               
             </article>
