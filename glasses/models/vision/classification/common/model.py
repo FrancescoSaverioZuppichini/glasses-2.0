@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from torch import nn
-from ..outputs import ModelOutputForClassification
+from ..outputs import ModelForClassificationOutput
 from glasses.config import ConfigMixin, Config
 from glasses.models.vision.backbones.config_map import (
     CONFIGS_TO_MODELS as BACKBONE_CONFIGS_TO_MODELS,
@@ -16,7 +16,7 @@ class AnyModelForClassification(nn.Module, ConfigMixin):
         self.backbone = backbone
         self.head = head
 
-    def forward(self, pixel_values) -> ModelOutputForClassification:
+    def forward(self, pixel_values) -> ModelForClassificationOutput:
         features = self.backbone(pixel_values)
         logits = self.head(features)
         return {"logits": logits}

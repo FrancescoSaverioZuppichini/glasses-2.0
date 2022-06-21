@@ -1,7 +1,7 @@
 from torch import nn
 from glasses.config import ConfigMixin
 
-from glasses.models.vision.classification.outputs import ModelOutputForClassification
+from glasses.models.vision.classification.outputs import ModelForClassificationOutput
 from .base import HeadForClassification
 from typing import List
 from torch import Tensor

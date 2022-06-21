@@ -17,12 +17,12 @@ from glasses.models.vision.classification.common import (
 import torch
 from glasses.models.vision.classification.heads.stupid import StupidHeadConfig
 
-from glasses.models.vision.classification.outputs import ModelOutputForClassification
+from glasses.models.vision.classification.outputs import ModelForClassificationOutput
 
 my_model = AnyModelForClassification(backbone=Dummy(3, 64), head=LinearHead(10, 64))
 
 x = torch.randn((1, 3, 224, 224))
-out: ModelOutputForClassification = my_model(x)
+out: ModelForClassificationOutput = my_model(x)
 print(out["logits"].shape)
 
 from dataclasses import dataclass
@@ -51,5 +51,5 @@ config.head_config = LinearHeadConfig(20, 128)
 my_model = AnyModelForClassification.from_config(config)
 print(my_model)
 # x = torch.randn((1, 1, 224, 224))
-# out: ModelOutputForClassification = my_model(x)
+# out: ModelForClassificationOutput = my_model(x)
 # print(out["logits"].shape)
