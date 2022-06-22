@@ -1,7 +1,7 @@
 from glasses.CONFIG_MAP import CONFIG_MAP
 
 
-from glasses.models.vision.classification.heads.LinearHead import (
+from glasses.models.vision.classification.heads.linear_head.model import (
     LinearHeadConfig,
     LinearHead,
 )
