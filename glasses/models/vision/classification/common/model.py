@@ -1,11 +1,11 @@
 from __future__ import annotations
-from torch import nn
 
-from ..outputs import ModelForClassificationOutput
-from torch import Tensor
 from typing import List
 
+from torch import Tensor, nn
+
 from ..base import ModelForClassification
+from ..outputs import ModelForClassificationOutput
 
 
 class AnyModelForClassification(ModelForClassification):

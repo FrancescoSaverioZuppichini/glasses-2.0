@@ -1,9 +1,11 @@
-from typing import Any, Dict, Optional, List
-from glasses.config import Config
 import difflib
+from typing import Dict, Optional, Callable
+
 from torch import nn
+
+from glasses.config import Config
 from glasses.logger import logger
-from glasses.storage import Storage, LocalStorage
+from glasses.storage import LocalStorage, Storage
 
 
 class AutoModel:
@@ -20,12 +22,12 @@ class AutoModel:
     ```
     """
 
-    names_to_configs: Dict[str, Config]
+    names_to_configs: Dict[str, Callable[[], Config]]
     """Holds the map from name to config type"""
 
     @classmethod
     def get_config_from_name(cls, name: str) -> Config:
-        return cls.names_to_configs[name]
+        return cls.names_to_configs[name]()
 
     @classmethod
     def from_name(cls, name: str):
@@ -36,7 +38,7 @@ class AutoModel:
                 msg += f' Did you mean "{suggestions[0]}?"'
             raise KeyError(msg)
 
-        config = cls.names_to_configs[name]
+        config = cls.names_to_configs[name]()
         return config.build()
 
     @classmethod

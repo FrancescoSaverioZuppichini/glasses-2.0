@@ -1,5 +1,7 @@
-from glasses.config import Config
 from dataclasses import dataclass
+
+from glasses.config import Config
+
 from .model import Dummy
 
 

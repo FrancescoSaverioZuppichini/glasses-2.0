@@ -1,6 +1,9 @@
 from dataclasses import dataclass
+
 from glasses.config import Config
+
 from .model import LinearHead
+
 
 @dataclass
 class LinearHeadConfig(Config):

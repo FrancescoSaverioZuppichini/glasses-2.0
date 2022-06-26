@@ -1,23 +1,15 @@
+import torch
+
 from glasses.CONFIG_MAP import CONFIG_MAP
-
-
-from glasses.models.vision.classification.heads.linear_head.model import (
-    LinearHeadConfig,
-    LinearHead,
-)
-
 from glasses.models.vision.backbones.dummy.config import DummyConfig
 from glasses.models.vision.backbones.dummy.model import Dummy
 from glasses.models.vision.classification.common import (
-    AnyModelForClassification,
-    AnyModelForClassificationConfig,
-    Configurable,
-)
-
-import torch
+    AnyModelForClassification, AnyModelForClassificationConfig, Configurable)
+from glasses.models.vision.classification.heads.linear_head.model import (
+    LinearHead, LinearHeadConfig)
 from glasses.models.vision.classification.heads.stupid import StupidHeadConfig
-
-from glasses.models.vision.classification.outputs import ModelForClassificationOutput
+from glasses.models.vision.classification.outputs import \
+    ModelForClassificationOutput
 
 my_model = AnyModelForClassification(backbone=Dummy(3, 64), head=LinearHead(10, 64))
 

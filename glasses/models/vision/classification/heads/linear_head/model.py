@@ -1,8 +1,8 @@
-from torch import nn
+from typing import List
+
+from torch import Tensor, nn
 
 from ..base import HeadForClassification
-from typing import List
-from torch import Tensor
 
 
 class LinearHead(HeadForClassification):

@@ -1,6 +1,8 @@
 from dataclasses import dataclass
+
 import pytest
 from torch import nn
+
 from glasses.config import Config
 from glasses.models.auto import AutoModel
 

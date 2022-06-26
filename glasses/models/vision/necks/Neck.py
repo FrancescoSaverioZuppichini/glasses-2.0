@@ -1,5 +1,6 @@
 from typing import List
-from torch import nn, Tensor
+
+from torch import Tensor, nn
 
 
 class Neck(nn.Module):

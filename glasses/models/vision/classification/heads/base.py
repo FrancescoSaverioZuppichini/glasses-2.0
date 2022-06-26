@@ -1,5 +1,6 @@
 from typing import List
-from torch import nn, Tensor
+
+from torch import Tensor, nn
 
 
 class HeadForClassification(nn.Module):
@@ -31,9 +32,6 @@ class HeadForClassification(nn.Module):
 
         Args:
             features (List[Tensor]): A list of features.
-
-        Raises:
-            NotImplemented:
 
         Returns:
             Tensor: The logits

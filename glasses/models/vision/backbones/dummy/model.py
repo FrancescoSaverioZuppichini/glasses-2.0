@@ -1,5 +1,6 @@
 from typing import Any, List
-from torch import nn, Tensor
+
+from torch import Tensor, nn
 
 from ..base import Backbone
 

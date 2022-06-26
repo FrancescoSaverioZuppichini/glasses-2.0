@@ -1,12 +1,15 @@
-import torch
-from ..base import Storage
-from dataclasses import dataclass
-from glasses.types import StateDict
-from pathlib import Path
-from torch import nn
-from typing import Dict, List, Tuple
-from glasses.config import Config
 import json
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, List, Tuple
+
+import torch
+from torch import nn
+
+from glasses.config import Config
+from glasses.types import StateDict
+
+from ..base import Storage
 
 
 @dataclass

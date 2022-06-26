@@ -1,7 +1,9 @@
-from typing import List, Tuple, Dict
 from abc import ABC, abstractmethod
-from glasses.config import Config
+from typing import Dict, List, Tuple
+
 from torch import nn
+
+from glasses.config import Config
 from glasses.types import StateDict
 
 

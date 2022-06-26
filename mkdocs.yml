@@ -26,6 +26,7 @@ theme:
 nav:
   - Docs: index.md
   - Getting Started: getting_started.md
+  - Tutorial: tutorial/
   - Contributing: contributing.md
   - Code Reference: reference/
   - Models: models/

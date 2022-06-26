@@ -1,5 +1,7 @@
 from dataclasses import dataclass
+
 from glasses.config import Config
+
 from .model import AnyModelForClassification
 
 

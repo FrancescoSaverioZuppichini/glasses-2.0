@@ -1,5 +1,7 @@
 from typing import Any, List
-from torch import nn, Tensor
+
+from torch import Tensor, nn
+
 from .outputs import ModelForClassificationOutput
 
 
@@ -61,9 +63,6 @@ class ModelForClassification(nn.Module):
 
         Args:
             pixel_values (Tensor):  The input image.
-
-        Raises:
-            NotImplemented:
 
         Returns:
             Tensor: The logits.

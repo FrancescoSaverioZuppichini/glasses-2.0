@@ -1,8 +1,6 @@
 import importlib
 from pathlib import Path
-from typing import Iterator, Optional, List
-
-CONFIG_VAR_NAME = "CONFIG"
+from typing import Iterator, List, Optional
 
 
 def iter_models_modules(

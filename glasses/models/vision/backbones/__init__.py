@@ -1,1 +1,1 @@
-from .dummy import DummyConfig, Dummy
+from .dummy import Dummy, DummyConfig
