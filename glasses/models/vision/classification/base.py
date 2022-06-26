@@ -1,10 +1,9 @@
 from typing import Any, List
 from torch import nn, Tensor
 from .outputs import ModelForClassificationOutput
-from glasses.config import ConfigMixin
 
 
-class ModelForClassification(nn.Module, ConfigMixin):
+class ModelForClassification(nn.Module):
     """Base class for classification models
 
     Define a custom classification model. It can be whatever you want, the only contrain is that it **must** return a `ModelForClassificationOutput`.

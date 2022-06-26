@@ -1,6 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from typing import Any, runtime_checkable
+from torch import nn
 
 
 @dataclass
@@ -25,25 +25,28 @@ class Config:
 
     pass
 
+    def build(self) -> nn.Module:
+        raise NotImplemented
 
-class ConfigMixin:
-    """
-    A mixin that add a `from_config` **classmethod** to your class.
 
-    Override this method to create your class' inputs based on the `Config`.
+# class ConfigMixin:
+#     """
+#     A mixin that add a `from_config` **classmethod** to your class.
 
-    By default, the passed configuration to `from_config` is converted to dict.
+#     Override this method to create your class' inputs based on the `Config`.
 
-    """
+#     By default, the passed configuration to `from_config` is converted to dict.
 
-    @classmethod
-    def from_config(cls, config: ConfigMixin._config_type) -> ConfigMixin:
-        """A class method that takes a `Config` an return the class correctly initialized using the `config` values.
+#     """
 
-        Args:
-            config (Config): A `Config` instance.
+#     @classmethod
+#     def from_config(cls, config: ConfigMixin._config_type) -> ConfigMixin:
+#         """A class method that takes a `Config` an return the class correctly initialized using the `config` values.
 
-        Returns:
-            ConfigMixin: The class instance.
-        """
-        return cls(**config.__dict__)
+#         Args:
+#             config (Config): A `Config` instance.
+
+#         Returns:
+#             ConfigMixin: The class instance.
+#         """
+#         return cls(**config.__dict__)

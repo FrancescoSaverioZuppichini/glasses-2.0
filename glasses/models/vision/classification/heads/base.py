@@ -1,10 +1,8 @@
-from typing import Any, List
+from typing import List
 from torch import nn, Tensor
-from ..outputs import ModelForClassificationOutput
-from glasses.config import ConfigMixin
 
 
-class HeadForClassification(nn.Module, ConfigMixin):
+class HeadForClassification(nn.Module):
     """Base class for classification heads
 
     Define a custom classification head

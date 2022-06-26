@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Set
 from glasses.config import Config
 import difflib
 from torch import nn
@@ -22,8 +22,6 @@ class AutoModel:
 
     names_to_configs: Dict[str, Config]
     """Holds the map from name to config type"""
-    configs_to_models: Dict[str, nn.Module]
-    """Holds the map from config type to config model type"""
 
     @classmethod
     def from_name(cls, name: str, config: Optional[Config] = None):
@@ -35,8 +33,7 @@ class AutoModel:
             raise KeyError(msg)
 
         config = cls.names_to_configs[name] if config is None else config
-        model_func = cls.configs_to_models[type(config)]
-        return model_func.from_config(config), config
+        return config.build()
 
     @classmethod
     def from_pretrained(

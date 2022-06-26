@@ -1,17 +1,20 @@
-from enum import auto
-from glasses.models.vision.classification import AutoModelForClassification
-from glasses.models.vision.classification.dummy.config import (
-    DummyForClassificationConfig,
-)
-from glasses.storage import LocalStorage
-from dataclasses import asdict
+# from glasses.models.vision.auto import AutoModelForClassification
 
-name = "dummy-d0"
-
-# model, config = auto_model.from_name(name)
+from glasses.models.vision.backbones.dummy import DummyConfig
+from glasses.models.vision.classification.common.model import AnyModelForClassification
+from glasses.models.vision.classification.dummy import DummyForClassificationConfig
+from glasses.models.vision.classification.heads.linear_head import LinearHeadConfig
 
 
-# auto_model.storage.put(name, model.state_dict(), asdict(config))
-config: DummyForClassificationConfig = AutoModelForClassification.names_to_configs[name]
-model, config = AutoModelForClassification.from_name(name, config)
-print(model)
+model = DummyForClassificationConfig(
+    backbone_config=DummyConfig(), head_config=LinearHeadConfig(64, 10)
+).build()
+
+
+# import importlib
+
+
+# # module = importlib.import_module('.', "glasses.models.vision.classification.dummy.model")
+
+# # AutoModelForClassification
+# # print(AutoModelForClassification)

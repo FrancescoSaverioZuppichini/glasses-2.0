@@ -1,3 +1,4 @@
 from .config import DummyConfig
+from glasses.models import ModelZoo
 
-zoo = dict(dummy_d0=DummyConfig(), dummy_d1=DummyConfig(out_channels=128))
+zoo = ModelZoo(dummy_d0=DummyConfig(), dummy_d1=DummyConfig(out_channels=128))
