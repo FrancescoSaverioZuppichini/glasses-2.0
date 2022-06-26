@@ -12,6 +12,7 @@ def levit_128S():
         drop_path_rate=0,
     )
 
+
 def levit_128():
     return LeViTBackboneConfig(
         hidden_sizes=[128, 256, 384],
@@ -20,6 +21,7 @@ def levit_128():
         key_dim=[16, 16, 16],
         drop_path_rate=0,
     )
+
 
 def levit_192():
     return LeViTBackboneConfig(
@@ -30,6 +32,7 @@ def levit_192():
         drop_path_rate=0,
     )
 
+
 def levit_256():
     return LeViTBackboneConfig(
         hidden_sizes=[256, 384, 512],
@@ -38,6 +41,7 @@ def levit_256():
         key_dim=[32, 32, 32],
         drop_path_rate=0,
     )
+
 
 def levit_384():
     return LeViTBackboneConfig(
@@ -55,5 +59,4 @@ zoo = ModelZoo(
     levit_192=levit_192,
     levit_256=levit_256,
     levit_384=levit_384,
-
 )

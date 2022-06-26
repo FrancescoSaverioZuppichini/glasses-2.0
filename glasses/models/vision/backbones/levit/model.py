@@ -1,5 +1,5 @@
 import itertools
-from typing import Tuple, List
+from typing import List, Tuple
 
 import torch
 from torch import Tensor, nn
@@ -10,9 +10,27 @@ from ..utils import DropPath
 
 
 class LeViTConvEmbeddings(nn.Module):
-    def __init__(self, in_channels: int, out_channels: int, kernel_size: int, stride: int, padding: int, dilation: int = 1, groups: int = 1):
+    def __init__(
+        self,
+        in_channels: int,
+        out_channels: int,
+        kernel_size: int,
+        stride: int,
+        padding: int,
+        dilation: int = 1,
+        groups: int = 1,
+    ):
         super().__init__()
-        self.convolution = nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding, dilation=dilation, groups=groups, bias=False)
+        self.convolution = nn.Conv2d(
+            in_channels,
+            out_channels,
+            kernel_size,
+            stride,
+            padding,
+            dilation=dilation,
+            groups=groups,
+            bias=False,
+        )
         self.bn = nn.BatchNorm2d(out_channels)
 
     def forward(self, x: Tensor) -> Tensor:
@@ -20,24 +38,33 @@ class LeViTConvEmbeddings(nn.Module):
         x = self.bn(x)
         return x
 
+
 class LeViTPatchEmbeddings(nn.Module):
     def __init__(
         self,
         in_channels: int,
         hidden_size: Tuple[int],
-        kernel_size: int, 
+        kernel_size: int,
         stride: int,
         padding: int,
     ):
         super().__init__()
         self.patch_embed = nn.Sequential(
-            LeViTConvEmbeddings(in_channels, hidden_size[0] // 8, kernel_size, stride, padding),
+            LeViTConvEmbeddings(
+                in_channels, hidden_size[0] // 8, kernel_size, stride, padding
+            ),
             nn.Hardswish(),
-            LeViTConvEmbeddings(hidden_size[0] // 8, hidden_size[0] // 4, kernel_size, stride, padding),
+            LeViTConvEmbeddings(
+                hidden_size[0] // 8, hidden_size[0] // 4, kernel_size, stride, padding
+            ),
             nn.Hardswish(),
-            LeViTConvEmbeddings(hidden_size[0] // 4, hidden_size[0] // 2, kernel_size, stride, padding),
+            LeViTConvEmbeddings(
+                hidden_size[0] // 4, hidden_size[0] // 2, kernel_size, stride, padding
+            ),
             nn.Hardswish(),
-            LeViTConvEmbeddings(hidden_size[0] // 2, hidden_size[0], kernel_size, stride, padding),
+            LeViTConvEmbeddings(
+                hidden_size[0] // 2, hidden_size[0], kernel_size, stride, padding
+            ),
         )
         self.in_channels = in_channels
 
@@ -45,11 +72,13 @@ class LeViTPatchEmbeddings(nn.Module):
         in_channels = x.shape[1]
         if in_channels != self.in_channels:
             raise ValueError(
-                "Make sure that the channel dimension of the pixel values match with the one set in the configuration."
+                "Make sure that the channel dimension of the pixel values match with"
+                " the one set in the configuration."
             )
         x = self.patch_embed(x)
         x = x.flatten(2).transpose(1, 2)
         return x
+
 
 class LeViTMLPLayerWithBN(nn.Module):
     def __init__(self, input_dim: int, output_dim: int):
@@ -61,6 +90,7 @@ class LeViTMLPLayerWithBN(nn.Module):
         x = self.fc(x)
         x = self.bn(x.flatten(0, 1)).reshape_as(x)
         return x
+
 
 class LeViTSubsample(nn.Module):
     def __init__(self, stride: int, resolution: int):
@@ -75,8 +105,16 @@ class LeViTSubsample(nn.Module):
         ].reshape(batch_size, -1, channels)
         return x
 
+
 class LeViTAttentionBlock(nn.Module):
-    def __init__(self, hidden_sizes: Tuple[int], key_dim: Tuple[int], num_heads: Tuple[int], attn_ratio: Tuple[int], resolution: int):
+    def __init__(
+        self,
+        hidden_sizes: Tuple[int],
+        key_dim: Tuple[int],
+        num_heads: Tuple[int],
+        attn_ratio: Tuple[int],
+        resolution: int,
+    ):
         super().__init__()
         self.num_heads = num_heads
         self.scale = key_dim**-0.5
@@ -100,8 +138,13 @@ class LeViTAttentionBlock(nn.Module):
                 indices.append(attention_offsets[offset])
 
         self.attention_bias_cache = {}
-        self.attention_biases = torch.nn.Parameter(torch.zeros(num_heads, len(attention_offsets)))
-        self.register_buffer("attention_bias_idxs", torch.LongTensor(indices).view(len_points, len_points))
+        self.attention_biases = torch.nn.Parameter(
+            torch.zeros(num_heads, len(attention_offsets))
+        )
+        self.register_buffer(
+            "attention_bias_idxs",
+            torch.LongTensor(indices).view(len_points, len_points),
+        )
 
     @torch.no_grad()
     def train(self, mode=True):
@@ -115,7 +158,9 @@ class LeViTAttentionBlock(nn.Module):
         else:
             device_key = str(device)
             if device_key not in self.attention_bias_cache:
-                self.attention_bias_cache[device_key] = self.attention_biases[:, self.attention_bias_idxs]
+                self.attention_bias_cache[device_key] = self.attention_biases[
+                    :, self.attention_bias_idxs
+                ]
             return self.attention_bias_cache[device_key]
 
     def forward(self, x: Tensor) -> Tensor:
@@ -128,11 +173,18 @@ class LeViTAttentionBlock(nn.Module):
         key = key.permute(0, 2, 1, 3)
         value = value.permute(0, 2, 1, 3)
 
-        attention = query @ key.transpose(-2, -1) * self.scale + self.get_attention_biases(x.device)
+        attention = query @ key.transpose(
+            -2, -1
+        ) * self.scale + self.get_attention_biases(x.device)
         attention = attention.softmax(dim=-1)
-        x = (attention @ value).transpose(1, 2).reshape(batch_size, seq_length, self.out_dim_projection)
+        x = (
+            (attention @ value)
+            .transpose(1, 2)
+            .reshape(batch_size, seq_length, self.out_dim_projection)
+        )
         x = self.projection(self.act(x))
         return x
+
 
 class LeViTAttentionSubsampleBlock(nn.Module):
     def __init__(
@@ -170,13 +222,21 @@ class LeViTAttentionSubsampleBlock(nn.Module):
         for p1 in points_:
             for p2 in points:
                 size = 1
-                offset = (abs(p1[0] * stride - p2[0] + (size - 1) / 2), abs(p1[1] * stride - p2[1] + (size - 1) / 2))
+                offset = (
+                    abs(p1[0] * stride - p2[0] + (size - 1) / 2),
+                    abs(p1[1] * stride - p2[1] + (size - 1) / 2),
+                )
                 if offset not in attention_offsets:
                     attention_offsets[offset] = len(attention_offsets)
                 indices.append(attention_offsets[offset])
 
-        self.attention_biases = torch.nn.Parameter(torch.zeros(num_heads, len(attention_offsets)))
-        self.register_buffer("attention_bias_idxs", torch.LongTensor(indices).view(len_points_, len_points))
+        self.attention_biases = torch.nn.Parameter(
+            torch.zeros(num_heads, len(attention_offsets))
+        )
+        self.register_buffer(
+            "attention_bias_idxs",
+            torch.LongTensor(indices).view(len_points_, len_points),
+        )
 
     @torch.no_grad()
     def train(self, mode=True):
@@ -190,7 +250,9 @@ class LeViTAttentionSubsampleBlock(nn.Module):
         else:
             device_key = str(device)
             if device_key not in self.attention_bias_cache:
-                self.attention_bias_cache[device_key] = self.attention_biases[:, self.attention_bias_idxs]
+                self.attention_bias_cache[device_key] = self.attention_biases[
+                    :, self.attention_bias_idxs
+                ]
             return self.attention_bias_cache[device_key]
 
     def forward(self, x: Tensor) -> Tensor:
@@ -204,15 +266,22 @@ class LeViTAttentionSubsampleBlock(nn.Module):
         value = value.permute(0, 2, 1, 3)
 
         query = self.queries(self.queries_subsample(x))
-        query = query.view(batch_size, self.resolution_out**2, self.num_heads, self.key_dim).permute(
-            0, 2, 1, 3
-        )
+        query = query.view(
+            batch_size, self.resolution_out**2, self.num_heads, self.key_dim
+        ).permute(0, 2, 1, 3)
 
-        attention = query @ key.transpose(-2, -1) * self.scale + self.get_attention_biases(x.device)
+        attention = query @ key.transpose(
+            -2, -1
+        ) * self.scale + self.get_attention_biases(x.device)
         attention = attention.softmax(dim=-1)
-        x = (attention @ value).transpose(1, 2).reshape(batch_size, -1, self.out_dim_projection)
+        x = (
+            (attention @ value)
+            .transpose(1, 2)
+            .reshape(batch_size, -1, self.out_dim_projection)
+        )
         x = self.projection(self.act(x))
         return x
+
 
 class LeViTMLPBLock(nn.Module):
     def __init__(self, input_dim: int, hidden_dim: int):
@@ -226,6 +295,7 @@ class LeViTMLPBLock(nn.Module):
         x = self.act(x)
         x = self.fc2(x)
         return x
+
 
 class ResidualAddition(nn.Module):
     def __init__(self, module: nn.Module, drop_rate: float):
@@ -242,6 +312,7 @@ class ResidualAddition(nn.Module):
         else:
             x = x + self.module(x)
             return x
+
 
 class LeViTBlock(nn.Module):
     def __init__(
@@ -265,14 +336,18 @@ class LeViTBlock(nn.Module):
         for _ in range(depths):
             self.layers.append(
                 ResidualAddition(
-                    LeViTAttentionBlock(hidden_sizes, key_dim, num_heads, attn_ratio, resolution_in),
+                    LeViTAttentionBlock(
+                        hidden_sizes, key_dim, num_heads, attn_ratio, resolution_in
+                    ),
                     drop_path_rate,
                 )
             )
             if mlp_ratio > 0:
                 hidden_dim = hidden_sizes * mlp_ratio
                 self.layers.append(
-                    ResidualAddition(LeViTMLPBLock(hidden_sizes, hidden_dim), drop_path_rate)
+                    ResidualAddition(
+                        LeViTMLPBLock(hidden_sizes, hidden_dim), drop_path_rate
+                    )
                 )
 
         if down_ops[0] == "Subsample":
@@ -294,7 +369,8 @@ class LeViTBlock(nn.Module):
                 hidden_dim = hidden_sizes_tuple[idx + 1] * down_ops[4]
                 self.layers.append(
                     ResidualAddition(
-                        LeViTMLPBLock(hidden_sizes_tuple[idx + 1], hidden_dim), drop_path_rate
+                        LeViTMLPBLock(hidden_sizes_tuple[idx + 1], hidden_dim),
+                        drop_path_rate,
                     )
                 )
 
@@ -347,7 +423,7 @@ class LeViTEncoder(nn.Module):
                 attn_ratio[stage_idx],
                 mlp_ratio[stage_idx],
                 drop_path_rate,
-                hidden_sizes_tuple=hidden_sizes
+                hidden_sizes_tuple=hidden_sizes,
             )
             resolution = stage.get_resolution()
             self.stages.append(stage)
@@ -358,6 +434,7 @@ class LeViTEncoder(nn.Module):
         for stage in self.stages:
             x = stage(x)
         return x
+
 
 class LeViTBackbone(Backbone):
     def __init__(
@@ -393,7 +470,7 @@ class LeViTBackbone(Backbone):
             key_dim=key_dim,
             drop_path_rate=drop_path_rate,
             mlp_ratio=mlp_ratio,
-            attn_ratio=attn_ratio
+            attn_ratio=attn_ratio,
         )
 
     def forward(self, pixel_values: Tensor) -> List[Tensor]:

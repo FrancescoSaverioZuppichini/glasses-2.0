@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 from glasses.models.vision.backbones.levit.config import LeViTBackboneConfig
+
 from ..common import AnyModelForClassificationConfig
 from ..heads.levit import LeViTHeadConfig
 

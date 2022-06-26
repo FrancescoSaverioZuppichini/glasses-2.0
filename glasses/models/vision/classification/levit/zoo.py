@@ -30,6 +30,7 @@ def levit_128():
         head_config=LeViTHeadConfig(384, 1000),
     )
 
+
 def levit_192():
     return LeViTForClassificationConfig(
         backbone_config=LeViTBackboneConfig(
@@ -42,6 +43,7 @@ def levit_192():
         head_config=LeViTHeadConfig(384, 1000),
     )
 
+
 def levit_256():
     return LeViTForClassificationConfig(
         backbone_config=LeViTBackboneConfig(
@@ -53,6 +55,7 @@ def levit_256():
         ),
         head_config=LeViTHeadConfig(512, 1000),
     )
+
 
 def levit_384():
     return LeViTForClassificationConfig(
@@ -72,5 +75,5 @@ zoo = ModelZoo(
     levit_128=levit_128S,
     levit_192=levit_192,
     levit_256=levit_256,
-    levit_384=levit_384
+    levit_384=levit_384,
 )
