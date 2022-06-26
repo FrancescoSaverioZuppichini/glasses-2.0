@@ -16,3 +16,4 @@ from glasses.models.vision.auto import AutoModelBackbone, AutoModelForClassifica
 
 # # module = importlib.import_module('.', "glasses.models.vision.classification.dummy.model")
 my_config = AutoModelForClassification.get_config_from_name("dummy_d0_im")
+from torch import nn
