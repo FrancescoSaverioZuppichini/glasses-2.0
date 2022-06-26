@@ -10,19 +10,19 @@
         <meta name="author" content="Francesco Zuppichini">
       
       
-      <link rel="icon" href="../../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
-        <title>zoo - Glasses</title>
+        <title>model - Glasses</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../../../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -38,11 +38,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../../../../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../../../../../css/termynal.css">
+      <link rel="stylesheet" href="../../../../../../../css/termynal.css">
     
-    <script>__md_scope=new URL("../../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#glasses.tests.tests.package.a.zoo" class="md-skip">
+        <a href="#glasses.models.vision.classification.heads.vit.model" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../.." title="Glasses" class="md-header__button md-logo" aria-label="Glasses" data-md-component="logo">
+    <a href="../../../../../../.." title="Glasses" class="md-header__button md-logo" aria-label="Glasses" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              zoo
+              model
             
           </span>
         </div>
@@ -206,7 +206,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../.." title="Glasses" class="md-nav__button md-logo" aria-label="Glasses" data-md-component="logo">
+    <a href="../../../../../../.." title="Glasses" class="md-nav__button md-logo" aria-label="Glasses" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -237,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../.." class="md-nav__link">
+      <a href="../../../../../../.." class="md-nav__link">
         Docs
       </a>
     </li>
@@ -252,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../getting_started/" class="md-nav__link">
+      <a href="../../../../../../../getting_started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -293,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../tutorial/configurations/" class="md-nav__link">
+      <a href="../../../../../../../tutorial/configurations/" class="md-nav__link">
         Configurations
       </a>
     </li>
@@ -315,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../contributing/" class="md-nav__link">
+      <a href="../../../../../../../contributing/" class="md-nav__link">
         Contributing
       </a>
     </li>
@@ -386,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../config/" class="md-nav__link">
+      <a href="../../../../../../config/" class="md-nav__link">
         config
       </a>
     </li>
@@ -400,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../logger/" class="md-nav__link">
+      <a href="../../../../../../logger/" class="md-nav__link">
         logger
       </a>
     </li>
@@ -412,12 +412,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3" type="checkbox" id="__nav_5_1_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3" type="checkbox" id="__nav_5_1_3" checked>
       
       
       
@@ -440,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/" class="md-nav__link">
+      <a href="../../../../../" class="md-nav__link">
         Index
       </a>
     </li>
@@ -480,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/auto/" class="md-nav__link">
+      <a href="../../../../../auto/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -494,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/auto/base/" class="md-nav__link">
+      <a href="../../../../../auto/base/" class="md-nav__link">
         base
       </a>
     </li>
@@ -508,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/auto/model_zoo/" class="md-nav__link">
+      <a href="../../../../../auto/model_zoo/" class="md-nav__link">
         model_zoo
       </a>
     </li>
@@ -522,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/auto/utils/" class="md-nav__link">
+      <a href="../../../../../auto/utils/" class="md-nav__link">
         utils
       </a>
     </li>
@@ -569,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/transform/" class="md-nav__link">
+      <a href="../../../../../transform/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -583,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/transform/transform/" class="md-nav__link">
+      <a href="../../../../../transform/transform/" class="md-nav__link">
         transform
       </a>
     </li>
@@ -602,12 +604,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3_4" type="checkbox" id="__nav_5_1_3_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3_4" type="checkbox" id="__nav_5_1_3_4" checked>
       
       
       
@@ -630,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/" class="md-nav__link">
+      <a href="../../../../" class="md-nav__link">
         Index
       </a>
     </li>
@@ -644,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/auto/" class="md-nav__link">
+      <a href="../../../../auto/" class="md-nav__link">
         auto
       </a>
     </li>
@@ -684,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/backbones/" class="md-nav__link">
+      <a href="../../../../backbones/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -698,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/backbones/base/" class="md-nav__link">
+      <a href="../../../../backbones/base/" class="md-nav__link">
         base
       </a>
     </li>
@@ -738,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/backbones/vit/" class="md-nav__link">
+      <a href="../../../../backbones/vit/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -752,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/backbones/vit/config/" class="md-nav__link">
+      <a href="../../../../backbones/vit/config/" class="md-nav__link">
         config
       </a>
     </li>
@@ -766,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/backbones/vit/model/" class="md-nav__link">
+      <a href="../../../../backbones/vit/model/" class="md-nav__link">
         model
       </a>
     </li>
@@ -780,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/backbones/vit/zoo/" class="md-nav__link">
+      <a href="../../../../backbones/vit/zoo/" class="md-nav__link">
         zoo
       </a>
     </li>
@@ -806,12 +810,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3_4_4" type="checkbox" id="__nav_5_1_3_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3_4_4" type="checkbox" id="__nav_5_1_3_4_4" checked>
       
       
       
@@ -834,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         Index
       </a>
     </li>
@@ -848,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/base/" class="md-nav__link">
+      <a href="../../../base/" class="md-nav__link">
         base
       </a>
     </li>
@@ -888,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/common/" class="md-nav__link">
+      <a href="../../../common/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -902,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/common/config/" class="md-nav__link">
+      <a href="../../../common/config/" class="md-nav__link">
         config
       </a>
     </li>
@@ -916,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/common/model/" class="md-nav__link">
+      <a href="../../../common/model/" class="md-nav__link">
         model
       </a>
     </li>
@@ -935,12 +941,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3_4_4_4" type="checkbox" id="__nav_5_1_3_4_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3_4_4_4" type="checkbox" id="__nav_5_1_3_4_4_4" checked>
       
       
       
@@ -963,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/heads/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         Index
       </a>
     </li>
@@ -977,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/heads/base/" class="md-nav__link">
+      <a href="../../base/" class="md-nav__link">
         base
       </a>
     </li>
@@ -1017,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/heads/linear_head/" class="md-nav__link">
+      <a href="../../linear_head/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1031,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/heads/linear_head/config/" class="md-nav__link">
+      <a href="../../linear_head/config/" class="md-nav__link">
         config
       </a>
     </li>
@@ -1045,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/heads/linear_head/model/" class="md-nav__link">
+      <a href="../../linear_head/model/" class="md-nav__link">
         model
       </a>
     </li>
@@ -1064,12 +1072,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3_4_4_4_4" type="checkbox" id="__nav_5_1_3_4_4_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3_4_4_4_4" type="checkbox" id="__nav_5_1_3_4_4_4_4" checked>
       
       
       
@@ -1092,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/heads/vit/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1106,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/heads/vit/config/" class="md-nav__link">
+      <a href="../config/" class="md-nav__link">
         config
       </a>
     </li>
@@ -1118,11 +1128,96 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/heads/vit/model/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         model
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model" class="md-nav__link">
+    glasses.models.vision.classification.heads.vit.model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead" class="md-nav__link">
+    ViTHead
+  </a>
+  
+    <nav class="md-nav" aria-label="ViTHead">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.POLICIES" class="md-nav__link">
+    POLICIES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.fc" class="md-nav__link">
+    fc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.pool" class="md-nav__link">
+    pool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.forward" class="md-nav__link">
+    forward()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1148,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/outputs/" class="md-nav__link">
+      <a href="../../../outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -1188,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/vit/" class="md-nav__link">
+      <a href="../../../vit/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1202,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/vit/config/" class="md-nav__link">
+      <a href="../../../vit/config/" class="md-nav__link">
         config
       </a>
     </li>
@@ -1216,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/classification/vit/zoo/" class="md-nav__link">
+      <a href="../../../vit/zoo/" class="md-nav__link">
         zoo
       </a>
     </li>
@@ -1270,7 +1365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../models/vision/necks/Neck/" class="md-nav__link">
+      <a href="../../../../necks/Neck/" class="md-nav__link">
         Neck
       </a>
     </li>
@@ -1305,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nn/" class="md-nav__link">
+      <a href="../../../../../../nn/" class="md-nav__link">
         nn
       </a>
     </li>
@@ -1345,7 +1440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../storage/" class="md-nav__link">
+      <a href="../../../../../../storage/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1359,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../storage/base/" class="md-nav__link">
+      <a href="../../../../../../storage/base/" class="md-nav__link">
         base
       </a>
     </li>
@@ -1373,7 +1468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../storage/local/" class="md-nav__link">
+      <a href="../../../../../../storage/local/" class="md-nav__link">
         local
       </a>
     </li>
@@ -1392,14 +1487,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6" type="checkbox" id="__nav_5_1_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6" type="checkbox" id="__nav_5_1_6" >
       
       
       
@@ -1420,14 +1513,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6_1" type="checkbox" id="__nav_5_1_6_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6_1" type="checkbox" id="__nav_5_1_6_1" >
       
       
       
@@ -1448,14 +1539,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6_1_1" type="checkbox" id="__nav_5_1_6_1_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6_1_1" type="checkbox" id="__nav_5_1_6_1_1" >
       
       
       
@@ -1478,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../../../../../tests/auto/package/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1490,14 +1579,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6_1_1_2" type="checkbox" id="__nav_5_1_6_1_1_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6_1_1_2" type="checkbox" id="__nav_5_1_6_1_1_2" >
       
       
       
@@ -1520,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../../../../tests/auto/package/a/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1534,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../model/" class="md-nav__link">
+      <a href="../../../../../../tests/auto/package/a/model/" class="md-nav__link">
         model
       </a>
     </li>
@@ -1546,55 +1633,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          zoo
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../../../tests/auto/package/a/zoo/" class="md-nav__link">
         zoo
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#glasses.tests.tests.package.a.zoo" class="md-nav__link">
-    glasses.tests.tests.package.a.zoo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#glasses.tests.tests.package.a.zoo.zoo" class="md-nav__link">
-    zoo
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1639,7 +1682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../b/" class="md-nav__link">
+      <a href="../../../../../../tests/auto/package/b/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1653,7 +1696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../b/model/" class="md-nav__link">
+      <a href="../../../../../../tests/auto/package/b/model/" class="md-nav__link">
         model
       </a>
     </li>
@@ -1667,7 +1710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../b/zoo/" class="md-nav__link">
+      <a href="../../../../../../tests/auto/package/b/zoo/" class="md-nav__link">
         zoo
       </a>
     </li>
@@ -1695,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../test_auto/" class="md-nav__link">
+      <a href="../../../../../../tests/auto/test_auto/" class="md-nav__link">
         test_auto
       </a>
     </li>
@@ -1709,7 +1752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../test_auto_utils/" class="md-nav__link">
+      <a href="../../../../../../tests/auto/test_auto_utils/" class="md-nav__link">
         test_auto_utils
       </a>
     </li>
@@ -1730,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../conftest/" class="md-nav__link">
+      <a href="../../../../../../tests/conftest/" class="md-nav__link">
         conftest
       </a>
     </li>
@@ -1744,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fixtures/" class="md-nav__link">
+      <a href="../../../../../../tests/fixtures/" class="md-nav__link">
         fixtures
       </a>
     </li>
@@ -1765,7 +1808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../types/" class="md-nav__link">
+      <a href="../../../../../../types/" class="md-nav__link">
         types
       </a>
     </li>
@@ -1872,7 +1915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../models/vision/classification/dummy/" class="md-nav__link">
+      <a href="../../../../../../../models/vision/classification/dummy/" class="md-nav__link">
         Dummy
       </a>
     </li>
@@ -1925,16 +1968,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#glasses.tests.tests.package.a.zoo" class="md-nav__link">
-    glasses.tests.tests.package.a.zoo
+  <a href="#glasses.models.vision.classification.heads.vit.model" class="md-nav__link">
+    glasses.models.vision.classification.heads.vit.model
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#glasses.tests.tests.package.a.zoo.zoo" class="md-nav__link">
-    zoo
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead" class="md-nav__link">
+    ViTHead
   </a>
+  
+    <nav class="md-nav" aria-label="ViTHead">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.POLICIES" class="md-nav__link">
+    POLICIES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.fc" class="md-nav__link">
+    fc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.pool" class="md-nav__link">
+    pool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glasses.models.vision.classification.heads.vit.model.ViTHead.forward" class="md-nav__link">
+    forward()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1950,19 +2034,107 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/FrancescoSaverioZuppichini/edit/main/docs/glasses/tests/auto/package/a/zoo.py" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/FrancescoSaverioZuppichini/edit/main/docs/glasses/models/vision/classification/heads/vit/model.py" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-  <h1>zoo</h1>
+  <h1>model</h1>
 
 <div class="doc doc-object doc-module">
 
 
-<a id="glasses.tests.tests.package.a.zoo"></a>
+<a id="glasses.models.vision.classification.heads.vit.model"></a>
   <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="glasses.models.vision.classification.heads.vit.model.ViTHead" class="doc doc-heading">
+        <code>ViTHead</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><a class="autorefs autorefs-internal" title="glasses.models.vision.classification.heads.base.HeadForClassification" href="../../base/#glasses.models.vision.classification.heads.base.HeadForClassification">HeadForClassification</a></code></p>
+
+
+
+        <details class="quote">
+          <summary>Source code in <code>glasses/models/vision/classification/heads/vit/model.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">class</span> <span class="nc">ViTHead</span><span class="p">(</span><span class="n">HeadForClassification</span><span class="p">):</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">POLICIES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;token&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">emb_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">768</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">policy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;token&quot;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="p">):</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        ViT Classification Head</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">            emb_size (int, optional):  Embedding dimensions Defaults to 768.</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">            n_classes (int, optional): [description]. Defaults to 1000.</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">            policy (str, optional): Pooling policy, can be token or mean. Defaults to &#39;token&#39;.</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">if</span> <span class="n">policy</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">POLICIES</span><span class="p">:</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Only policies </span><span class="si">{</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">POLICIES</span><span class="p">)</span><span class="si">}</span><span class="s2"> are supported&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>            <span class="n">Reduce</span><span class="p">(</span><span class="s2">&quot;b n e -&gt; b e&quot;</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>            <span class="k">if</span> <span class="n">policy</span> <span class="o">==</span> <span class="s2">&quot;mean&quot;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>            <span class="k">else</span> <span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">emb_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="k">return</span> <span class="n">x</span>
+</code></pre></div></td></tr></table></div>
+        </details>
 
   
 
@@ -1978,14 +2150,14 @@
 
 
 
-<h2 id="glasses.tests.tests.package.a.zoo.zoo" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">zoo</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></code>
+<h3 id="glasses.models.vision.classification.heads.vit.model.ViTHead.POLICIES" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">POLICIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span></code>
   
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
   </span>
 
-</h2>
+</h3>
 
 
   <div class="doc doc-contents ">
@@ -1993,6 +2165,185 @@
 
 </div>
 
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="glasses.models.vision.classification.heads.vit.model.ViTHead.fc" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">emb_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="glasses.models.vision.classification.heads.vit.model.ViTHead.pool" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">pool</span> <span class="o">=</span> <span class="n">Reduce</span><span class="p">(</span><span class="s1">&#39;b n e -&gt; b e&#39;</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">policy</span> <span class="o">==</span> <span class="s1">&#39;mean&#39;</span> <span class="k">else</span> <span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="glasses.models.vision.classification.heads.vit.model.ViTHead.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">emb_size</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">policy</span><span class="o">=</span><span class="s1">&#39;token&#39;</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>ViT Classification Head</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>emb_size</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>Embedding dimensions Defaults to 768.</p></td>
+          <td>
+                <code>768</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>n_classes</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>[description]. Defaults to 1000.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>policy</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>Pooling policy, can be token or mean. Defaults to 'token'.</p></td>
+          <td>
+                <code>&#39;token&#39;</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>glasses/models/vision/classification/heads/vit/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="bp">self</span><span class="p">,</span> <span class="n">emb_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">768</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">policy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;token&quot;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="p">):</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    ViT Classification Head</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        emb_size (int, optional):  Embedding dimensions Defaults to 768.</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        n_classes (int, optional): [description]. Defaults to 1000.</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        policy (str, optional): Pooling policy, can be token or mean. Defaults to &#39;token&#39;.</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">if</span> <span class="n">policy</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">POLICIES</span><span class="p">:</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Only policies </span><span class="si">{</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">POLICIES</span><span class="p">)</span><span class="si">}</span><span class="s2"> are supported&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="n">Reduce</span><span class="p">(</span><span class="s2">&quot;b n e -&gt; b e&quot;</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="k">if</span> <span class="n">policy</span> <span class="o">==</span> <span class="s2">&quot;mean&quot;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="k">else</span> <span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">emb_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="glasses.models.vision.classification.heads.vit.model.ViTHead.forward" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">forward</span><span class="p">(</span><span class="n">features</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+
+      <details class="quote">
+        <summary>Source code in <code>glasses/models/vision/classification/heads/vit/model.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="k">return</span> <span class="n">x</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
 
 
 
@@ -2019,7 +2370,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../model/" class="md-footer__link md-footer__link--prev" aria-label="Previous: model" rel="prev">
+        <a href="../config/" class="md-footer__link md-footer__link--prev" aria-label="Previous: config" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2028,20 +2379,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              model
+              config
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../b/" class="md-footer__link md-footer__link--next" aria-label="Next: Index" rel="next">
+        <a href="../../../outputs/" class="md-footer__link md-footer__link--next" aria-label="Next: outputs" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Index
+              outputs
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2071,14 +2422,14 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../../../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../../../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../../../../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.0238f547.min.js"></script>
+      <script src="../../../../../../../assets/javascripts/bundle.0238f547.min.js"></script>
       
-        <script src="../../../../../../javascript/termynal.js"></script>
+        <script src="../../../../../../../javascript/termynal.js"></script>
       
-        <script src="../../../../../../javascript/custom.js"></script>
+        <script src="../../../../../../../javascript/custom.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
