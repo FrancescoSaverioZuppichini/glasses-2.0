@@ -20,8 +20,8 @@ def iter_models_modules(
         # if we have found a dir and it's not in ignore
         is_valid_dir = file_or_dir.is_dir() and file_or_dir.stem not in ignore_dirs
         if is_valid_dir:
-            has_a_model = (file_or_dir / "model.py").exists()
-            if has_a_model:
+            has_a_config = (file_or_dir / "config.py").exists()
+            if has_a_config:
                 yield f"{package}.{file_or_dir.stem}"
 
 
