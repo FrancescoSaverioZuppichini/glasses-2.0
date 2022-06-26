@@ -1,12 +1,11 @@
-
-
 from typing import Dict, List
+
 import torch
-from torch import nn
+from einops import rearrange, reduce, repeat
+from einops.layers.torch import Rearrange, Reduce
+from torch import Tensor, nn
 from torch.nn import functional as F
 
-from einops.layers.torch import Rearrange, Reduce
-from einops import repeat, reduce, rearrange
 from ..base import Backbone
 
 
@@ -14,16 +13,17 @@ class ViTTokens(nn.Module):
     def __init__(self, embed_dim: int):
         super().__init__()
         self.cls_token = nn.Parameter(torch.randn(1, 1, embed_dim))
-    
+
     def __len__(self):
         return len(list(self.parameters()))
 
-    def forward(self, x: torch.Tensor) -> List[torch.Tensor]:
+    def forward(self, x: Tensor) -> List[Tensor]:
         b = x.shape[0]
         tokens = []
         for token in self.parameters():
             tokens.append(repeat(token, "() n e -> b n e", b=b))
         return tokens
+
 
 class ViTPatchEmbedding(nn.Module):
     def __init__(
@@ -35,13 +35,17 @@ class ViTPatchEmbedding(nn.Module):
     ):
         super().__init__()
         self.proj = nn.Sequential(
-            nn.Conv2d(in_channels, embed_dim, kernel_size=patch_size, stride=patch_size),
+            nn.Conv2d(
+                in_channels, embed_dim, kernel_size=patch_size, stride=patch_size
+            ),
             Rearrange("b e (h) (w) -> b (h w) e"),
         )
         self.tokens = ViTTokens(embed_dim)
-        self.positions = nn.Parameter(torch.randn((img_size // patch_size) ** 2 + len(self.tokens), embed_dim))
+        self.positions = nn.Parameter(
+            torch.randn((img_size // patch_size) ** 2 + len(self.tokens), embed_dim)
+        )
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: Tensor) -> Tensor:
         x = self.proj(x)
         tokens = self.tokens(x)
         x = torch.cat([*tokens, x], dim=1)
@@ -69,8 +73,8 @@ class ViTAttentionBlock(nn.Module):
         )
 
         self.scaling = (self.embed_dim // num_heads) ** -0.5
-    
-    def forward(self, x: torch.Tensor, mask: torch.Tensor = None) -> torch.Tensor:
+
+    def forward(self, x: Tensor, mask: Tensor = None) -> Tensor:
         # split keys, queries and values in num_heads
         qkv = rearrange(
             self.qkv(x), "b n (qkv h d) -> (qkv) b h n d", h=self.num_heads, qkv=3
@@ -109,6 +113,7 @@ class ViTMLPBlock(nn.Sequential):
             nn.Dropout(drop_p),
         )
 
+
 class ResidualAddition(nn.Module):
     def __init__(self, fn):
         super().__init__()
@@ -141,8 +146,8 @@ class ViTBlock(nn.Module):
                     num_heads=num_heads,
                     attn_drop_p=attn_drop_p,
                     projection_drop_p=projection_drop_p,
-                    qkv_bias=qkv_bias
-                )
+                    qkv_bias=qkv_bias,
+                ),
             )
         )
         self.mlp = ResidualAddition(
@@ -152,8 +157,8 @@ class ViTBlock(nn.Module):
                     embed_dim=embed_dim,
                     expansion=forward_expansion,
                     drop_p=forward_drop_p,
-                    activation=activation
-                )
+                    activation=activation,
+                ),
             )
         )
 
@@ -161,6 +166,7 @@ class ViTBlock(nn.Module):
         x = self.transformer(x)
         x = self.mlp(x)
         return x
+
 
 class ViTEncoder(nn.Module):
     def __init__(
@@ -186,21 +192,23 @@ class ViTEncoder(nn.Module):
                 forward_expansion=forward_expansion,
                 forward_drop_p=forward_drop_p,
                 activation=activation,
-            ) for _ in range(depth)
+            )
+            for _ in range(depth)
         )
         self.norm = nn.LayerNorm(embed_dim)
-    
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        for layer in self.layers:
-            x = layer(x)
-        x = self.norm(x)
-        return x
 
+    def forward(self, x: Tensor) -> Tensor:
+        features = []
+        for layer in self.layers:
+            features.append(x)
+            x = layer(x)
+        features.append(self.norm(x))
+        return features
 
 
 class ViTBackbone(Backbone):
     def __init__(
-        self, 
+        self,
         img_size: int = 224,
         in_channels: int = 3,
         patch_size: int = 16,
@@ -219,7 +227,7 @@ class ViTBackbone(Backbone):
             in_channels=in_channels,
             patch_size=patch_size,
             embed_dim=embed_dim,
-            img_size=img_size
+            img_size=img_size,
         )
 
         self.encoder = ViTEncoder(
@@ -231,10 +239,10 @@ class ViTBackbone(Backbone):
             qkv_bias=qkv_bias,
             forward_expansion=forward_expansion,
             forward_drop_p=forward_drop_p,
-            activation=activation
+            activation=activation,
         )
-        
-    def forward(self, pixel_values: torch.Tensor) -> Dict[str, torch.Tensor]:
+
+    def forward(self, pixel_values: Tensor) -> List[Tensor]:
         embeddings = self.embedder(pixel_values)
-        outputs = self.encoder(embeddings)
-        return outputs
+        features = self.encoder(embeddings)
+        return features

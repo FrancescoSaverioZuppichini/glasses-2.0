@@ -1,1 +1,1 @@
-from .dummy import Dummy, DummyConfig
+from .vit import ViTBackbone, ViTBackboneConfig

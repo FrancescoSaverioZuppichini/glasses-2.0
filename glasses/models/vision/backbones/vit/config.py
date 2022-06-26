@@ -1,7 +1,11 @@
 from dataclasses import dataclass
-from glasses.config import Config
-from .model import ViTBackbone
+
 from torch import nn
+
+from glasses.config import Config
+
+from .model import ViTBackbone
+
 
 @dataclass
 class ViTBackboneConfig(Config):
@@ -18,8 +22,5 @@ class ViTBackboneConfig(Config):
     forward_drop_p: float = 0.2
     activation: nn.Module = nn.GELU
 
-    def build(self):
+    def build(self) -> ViTBackbone:
         return ViTBackbone(**self.__dict__)
-    
-    def pprint(self):
-        print(**self.__dict__)

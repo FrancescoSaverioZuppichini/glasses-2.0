@@ -1,5 +1,5 @@
 import difflib
-from typing import Dict, Optional, Callable
+from typing import Callable, Dict, Optional
 
 from torch import nn
 

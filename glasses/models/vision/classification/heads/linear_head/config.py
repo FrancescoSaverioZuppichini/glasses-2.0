@@ -10,5 +10,5 @@ class LinearHeadConfig(Config):
     in_channels: int
     num_classes: int
 
-    def build(self):
+    def build(self) -> LinearHead:
         return LinearHead(**self.__dict__)
