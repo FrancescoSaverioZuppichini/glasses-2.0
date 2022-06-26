@@ -1,6 +1,6 @@
 from typing import List
 
-from einops.layers.tensorflow import Reduce
+from einops.layers.torch import Reduce
 from torch import Tensor, nn
 
 from glasses.nn import Lambda
