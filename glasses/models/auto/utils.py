@@ -9,7 +9,6 @@ def iter_models_modules(
     ignore_dirs = [] if ignore_dirs is None else ignore_dirs
     # the following folders will be skipeed by default
     ignore_dirs += ["auto", "heads", "__pycache__", "common"]
-    configs_to_models = {}
     # we import the package
     module = importlib.import_module(".", package)
     if not module.__file__:

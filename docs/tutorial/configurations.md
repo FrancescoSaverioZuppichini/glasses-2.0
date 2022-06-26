@@ -116,7 +116,6 @@ The main advantage of the config system is when we need to save specific model v
 
 
 ```python
-
 my_model_backbone_a_x = MyConfig(backbone_config=BackboneAConfig(...), channels=64, num_classes=10)
 
 ```
@@ -124,7 +123,6 @@ my_model_backbone_a_x = MyConfig(backbone_config=BackboneAConfig(...), channels=
 Therefore, at any point in time I can recreate the model and load it's pretrained weights.
 
 ```python
-
 my_model_backbone_a_x.build().load_state_dict("/somewhere/my_model_backbone_a_x.pth")
 ```
 

@@ -1,8 +1,7 @@
 from dataclasses import dataclass
 
 from glasses.models.vision.backbones.dummy.config import DummyConfig
-from glasses.models.vision.classification.heads.linear_head import \
-    LinearHeadConfig
+from glasses.models.vision.classification.heads.linear_head import LinearHeadConfig
 
 from ..common import AnyModelForClassificationConfig
 

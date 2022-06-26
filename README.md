@@ -2,7 +2,7 @@
 - [ ] cookiecutter
 - [ ] pretrained models
   - [ ] saving
-  - [ ] loading
+  - [ ] loading 
 - [ ] doc for auto stuff
 - [ ] doc how to add a model
 - [ ] model page template
