@@ -18,7 +18,7 @@ class ViTHead(HeadForClassification):
         ViT Classification Head
         Args:
             emb_size (int, optional):  Embedding dimensions Defaults to 768.
-            n_classes (int, optional): [description]. Defaults to 1000.
+            num_classes (int, optional): [description]. Defaults to 1000.
             policy (str, optional): Pooling policy, can be token or mean. Defaults to 'token'.
         """
         if policy not in self.POLICIES:

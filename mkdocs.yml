@@ -1,4 +1,4 @@
-site_name: Glasses
+site_name: Glasses 😎
 repo_url: https://github.com/FrancescoSaverioZuppichini/glasses-2.0
 edit_uri: edit/main/docs
 site_author: Francesco Zuppichini
@@ -24,8 +24,8 @@ theme:
     - search.highlight
     - content.tabs.link
 nav:
-  - Docs: index.md
-  - Getting Started: getting_started.md
+  - Glasses: index.md
+  - Getting Started: getting-started.md
   - Tutorial: tutorial/
   - Contributing: contributing.md
   - Code Reference: reference/
