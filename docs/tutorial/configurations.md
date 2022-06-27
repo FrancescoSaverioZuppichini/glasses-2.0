@@ -1,5 +1,8 @@
 Glasses uses a configuration system to record/share and load custom version of a specific architecture. 
 
+!!! note
+    Configurations in `glasses` are python `dataclasses`, thus at any point in time you can import them and know exacly what goes inside.
+    
 The main idea behind our configuration system is to be an addition to the models, **not a requirement**. Any model in classes can be created by just importing it and passing the right parameters, they don't know about configurations.
 
 Saying that, why do we need configurations? 
@@ -8,6 +11,7 @@ Configurations are necessary when we need to store a specific set of parameters 
 
 In most libraries, configuration are serialized files (e.g. `yml`), in glasses they are piece of code. This allow the user to take advante of it's IDE and see the parameters at any point in time.
 
+## Basic `Config`
 
 Let's see how to create a basic config. First, we need a model
 
@@ -45,7 +49,11 @@ model: MyModel = MyConfig(2, 2).build()
 model: MyModel = MyModel(2, 2)
 ```
 
-Nothing very special. Let's see how to create a **nested config**. 
+Nothing very special.
+
+## Nested `Config`
+
+Let's see how to create a **nested config**. 
 
 Assume we have a model takes a backbone and idk has a fixed head.
 
@@ -64,10 +72,11 @@ class MyModel(nn.Module):
         return out
 ```
 
-Our config will be nested
+Our config will be nested, since `backbone` has it's own configuration.
 
 ```python
 from glasses.config import Config
+
 @dataclass
 class MyConfig(Config):
     backbone_config: Config
@@ -80,7 +89,7 @@ class MyConfig(Config):
         return MyModel(backbone, self.channels, self.num_classes)
 ```
 
-Obliously, we must have configs for the different backbones we want to use.
+As expected, we must have configs for the different backbones we want to use.
 
 
 ```python
@@ -137,3 +146,4 @@ config.num_classes = 8
 config.build().load_state_dict("/somewhere/my_model_backbone_a_x.pth")
 ```
 
+If you have any issue, feel free to open one on GitHub 
