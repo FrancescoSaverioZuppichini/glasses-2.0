@@ -2,9 +2,8 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Tuple
-
+import pickle
 import torch
-from torch import nn
 
 from glasses.config import Config
 from glasses.types import StateDict
@@ -25,22 +24,22 @@ class LocalStorage(Storage):
         save_dir = self.root / Path(key)
         save_dir.mkdir(exist_ok=True)
         model_save_path = save_dir / f"model.{self.fmt}"
-        config_save_path = save_dir / f"config.json"
+        config_save_path = save_dir / f"config.pkl"
 
         if key not in self or self.override:
             torch.save(state_dict, model_save_path)
-            with open(config_save_path, "w") as f:
-                json.dump(config, f)
+            with open(config_save_path, "wb") as f:
+                pickle.dump(config, f)
             assert model_save_path.exists()
             assert config_save_path.exists()
 
     def get(self, key: str) -> Tuple[StateDict, Config]:
         save_dir = self.root / Path(key)
         model_save_path = save_dir / f"model.{self.fmt}"
-        config_save_path = save_dir / f"config.json"
+        config_save_path = save_dir / f"config.pkl"
         state_dict = torch.load(model_save_path)
-        with open(config_save_path, "r") as f:
-            config = json.load(f)
+        with open(config_save_path, "rb") as f:
+            config = pickle.load(f)
         return state_dict, config
 
     @property
