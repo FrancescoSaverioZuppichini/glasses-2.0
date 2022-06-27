@@ -22,7 +22,7 @@ class MyModel(nn.Module):
         return self.conv(x)
 ```
 
-Then we can create it's configuration, 
+Then we can create it's configuration
 
 ```python
 from glasses.config import Config

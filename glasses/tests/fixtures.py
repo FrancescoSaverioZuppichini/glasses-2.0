@@ -6,6 +6,8 @@ from torch import nn
 from glasses.config import Config
 from glasses.models.auto import AutoModel
 
+from functools import partial
+
 
 class TestModel(nn.Module):
     def __init__(self, in_channels, out_channels):
@@ -26,7 +28,7 @@ class TestConfig(Config):
 
 
 class TestAutoModel(AutoModel):
-    names_to_configs = {"test1": TestConfig(), "test2": TestConfig(2)}
+    names_to_configs = {"test1": TestConfig, "test2": partial(TestConfig, 2)}
 
 
 @pytest.fixture

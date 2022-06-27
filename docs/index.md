@@ -1,19 +1,17 @@
-# A Modern Doc Template for your Python Project 💅
+# Glasses 😎
 
-This website was build with:
+Compact, concise and customizable deep learning computer vision library
 
- - [mkdocs.org](https://www.mkdocs.org)
- - [mkdocs-material](https://squidfunk.github.io/mkdocs-material/)
- - [pymdown](https://facelessuser.github.io/pymdown-extensions/)
+## TL;DR
 
-## Features
+This library has
 
-- out of the box amazing good looking website thanks to [mkdocs.org](https://www.mkdocs.org) and [mkdocs-material](https://squidfunk.github.io/mkdocs-material/)
-- a wide array of cool features, such as code highlight, admonition, latex rendering and more thanks to [pymdown](https://facelessuser.github.io/pymdown-extensions/)
-- [FastApi](https://fastapi.tiangolo.com/) cool [terminal rendering](/terminal/)
-- auto documentation for code thanks to [mkdocstrings](https://github.com/mkdocstrings/mkdocstrings)
-- automatic build thanks to github action, see the [CI/CD page](/ci_cd/)
-
+- human readable code, no *research code*
+- common component are shared across [models](#Models)
+- [same APIs](#classification) for all models (you learn them once and they are always the same)
+- clear and easy to use model constomization (see [here](#block))
+- [classification](#classification) and [segmentation](#segmentation) 
+- emoji in the name ;)
 
 ## Getting Started
 
