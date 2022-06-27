@@ -3,7 +3,7 @@
 !!! important
     🚧 This project is WIP. We will make it perfect, but we are not still there! If you want to help out, check the [Contributing Guide](/contributing.md) 💜.
 
-A Compact, concise and customizable deep learning computer library. Currently focused on vision.
+A compact, concise and customizable deep learning library. This library currently support deep learning models for computer vision.
 
 *Glasses* is a model toolbox with the goal of making easier for **everybody** to use, learn and share deep learning models.
 
@@ -40,7 +40,7 @@ $ pip install git+https://github.com/FrancescoSaverioZuppichini/glasses.git
 </div>
 
 ## Motivations
-Almost all existing implementations of the most famous model are written with very bad coding practices, what today is called research code. I struggled to understand some of the implementations even if in the end were just a few lines of code.
+Almost all existing implementations of the most famous model are written with very bad coding practices, what today is called research code. We struggled to understand some of the implementations even if in the end were just a few lines of code.
 
 Most of them are missing a global structure, they used tons of code repetition, they are not easily customizable and not tested. Thus, not easy to share and use by everybody.
 
