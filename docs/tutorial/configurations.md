@@ -1,7 +1,7 @@
-Glasses uses a configuration system to record/share and load custom version of a specific architecture. 
+Glasses uses a configuration system to record/share and load custom versions of a specific architecture. 
 
 !!! note
-    Configurations in `glasses` are python `dataclasses`, thus at any point in time you can import them and know exacly what goes inside.
+    Configurations in `glasses` are python `dataclasses`, thus at any point in time, you can import them and know exactly what goes inside.
     
 The main idea behind our configuration system is to be an addition to the models, **not a requirement**. Any model in classes can be created by just importing it and passing the right parameters, they don't know about configurations.
 
@@ -9,7 +9,7 @@ Saying that, why do we need configurations?
 
 Configurations are necessary when we need to store a specific set of parameters for a model. For example, if a model was trained on dataset `X` with ten classes, our configuration will contain all the parameters need to create that specific model.
 
-In most libraries, configuration are serialized files (e.g. `yml`), in glasses they are piece of code. This allow the user to take advante of it's IDE and see the parameters at any point in time.
+In most libraries, configurations are serialized files (e.g. `yml`), in glasses, they are code. This allows the user to take advantage of its IDE and see the parameters at any point in time.
 
 ## Basic `Config`
 
@@ -41,7 +41,7 @@ class MyConfig(Config):
         return MyModel(**self.__dict__)
 ```
 
-We can now invoke the `build` method, that will create the model
+We can now invoke the `build` method, which will create the model
 
 ```python
 model: MyModel = MyConfig(2, 2).build()
@@ -55,7 +55,7 @@ Nothing very special.
 
 Let's see how to create a **nested config**. 
 
-Assume we have a model takes a backbone and idk has a fixed head.
+Assume we have a model that takes a backbone and has a fixed head.
 
 ```python
 from torch import nn
@@ -72,7 +72,7 @@ class MyModel(nn.Module):
         return out
 ```
 
-Our config will be nested, since `backbone` has it's own configuration.
+Our config will be nested since `backbone` has its own configuration.
 
 ```python
 from glasses.config import Config
@@ -121,7 +121,7 @@ config.build() # build model with backbone A
 config = MyConfig(backbone_config=BackboneBConfig(...), ...)
 config.build() # build model with backbone B
 ```
-The main advantage of the config system is when we need to save specific model version. For instance, assume I have trained `MyModel` with `BackboneA` on dataset `X`. It's config will look like:
+The main advantage of the config system is when we need to save a specific model version. For instance, assume I have trained `MyModel` with `BackboneA` on dataset `X`. Its config will look like this:
 
 
 ```python
@@ -129,13 +129,13 @@ my_model_backbone_a_x = MyConfig(backbone_config=BackboneAConfig(...), channels=
 
 ```
 
-Therefore, at any point in time I can recreate the model and load it's pretrained weights.
+Therefore, at any point in time, I can recreate the model and load its pretrained weights.
 
 ```python
 my_model_backbone_a_x.build().load_state_dict("/somewhere/my_model_backbone_a_x.pth")
 ```
 
-Now, what if I want to use `my_model_backbone_a_x` architecture but just change a small part? Maybe the numer of classes?
+Now, what if I want to use `my_model_backbone_a_x` architecture but just change a small part? Maybe the number of classes?
 
 
 ```python
@@ -146,4 +146,4 @@ config.num_classes = 8
 config.build().load_state_dict("/somewhere/my_model_backbone_a_x.pth")
 ```
 
-If you have any issue, feel free to open one on GitHub 
+If you have any issues, feel free to open one on GitHub 

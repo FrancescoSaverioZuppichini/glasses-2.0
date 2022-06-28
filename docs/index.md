@@ -1,11 +1,11 @@
 # Glasses 😎
 
-!!! important
+!!! important "A long way to go"
     🚧 This project is WIP. We will make it perfect, but we are not still there! If you want to help out, check the [Contributing Guide](/contributing.md) 💜.
 
-A compact, concise and customizable deep learning library. This library currently support deep learning models for computer vision.
+A compact, concise, and customizable deep learning library. This library currently supports deep learning models for computer vision.
 
-*Glasses* is a model toolbox with the goal of making easier for **everybody** to use, learn and share deep learning models.
+*Glasses* is a model toolbox to make it easier for **everybody** to use, learn and share deep learning models.
 
 
 **Documentation**: [TODO](TODO)
@@ -42,31 +42,31 @@ $ pip install git+https://github.com/FrancescoSaverioZuppichini/glasses.git
 ## Motivations
 Almost all existing implementations of the most famous model are written with very bad coding practices, what today is called research code. We struggled to understand some of the implementations even if in the end were just a few lines of code.
 
-Most of them are missing a global structure, they used tons of code repetition, they are not easily customizable and not tested. Thus, not easy to share and use by everybody.
+Most of them are missing a global structure, they used tons of code repetition, and they are not easily customizable and not tested. Thus, not easy to share and use by everybody.
 
 ### Comparison with other libraries
 
-Where does *glasses* stand across this amazing work of open source?
+Where do *glasses* stand across this amazing work of open source?
 
-* [Transformers](https://github.com/huggingface/transformers) is not a model toolbox, therefore you cannot compose and share individual building components. Moreover, their phisolofy of one model one file creates a lot of code repetition creating huge model files hard to read and to understand.
+* [Transformers](https://github.com/huggingface/transformers) is not a model toolbox, therefore you cannot compose and share individual building components. Moreover, their philosophy of one model one file creates a lot of code repetition creating huge model files hard to read and understand.
 
     Their testing approach, even if more robust than ours, increase the development time due to the amount of work required to make the model pass the tests.
 
-    Moreover, we are not motivated by financial gains. Thus, we don't follow the hype blindy.
+    Moreover, we are not motivated by financial gains. Thus, we don't follow the hype blindly.
 
 
-* [IceVision](https://airctic.com/0.12.0/) is a great library to train models in different vision tasks. The main different between glasses is that they don't "own" the model, they rely on third party libraries with custom adapters.
+* [IceVision](https://airctic.com/0.12.0/) is a great library to train models in different vision tasks. The main difference between glasses is that they don't "own" the model, they rely on third-party libraries with custom adapters.
 
-    This strategy makes it easier to increase the pool of available models, but a minor change in one dependencies may break the whole codebase. 
+    This strategy makes it easier to increase the pool of available models, but a minor change in one dependency may break the whole codebase. 
 
-    Our goal is also *to teach*, for this reason we implemented all the model we use in a (hopefully) clear and conside way.
+    Our goal is also *to teach*, for this reason, we implemented all the models we use in a (hopefully) clear and concise way.
 
 
 * [OpenMMLab](https://github.com/open-mmlab) team has different amazing libraries for each vision task. However, they are fragmented and not easy to use due to the configuration system.
 
-    Their configuration system is not typed, therefore is impossible for the end user to know what to place inside it. They used inheritance in configuration, making it really challanging to have a full view of the system.
+    Their configuration system is not typed, therefore is impossible for the end-user to know what to place inside it. They used inheritance in configuration, making it challenging to have a full view of the system.
 
-    Finally, their trained is a close box; very hard to extend. We will rely on [Lightning](https://www.pytorchlightning.ai/)
+    Finally, their `Trainer` is a closed box; very hard to extend. We will rely on [Lightning](https://www.pytorchlightning.ai/)
 
 
 * [Detectron2](https://github.com/facebookresearch/detectron2). If you were able to use it, you are my hero.
@@ -77,10 +77,18 @@ Head over the [getting started](getting_started) guide
 
 ## RoadMap
 
-We plan to have three main steps in development
+We plan to have three main steps in the development
 
-* **Models**: Definied different models for different tasks, the configuration system and how to save/load them. ⬅️ **We are here!**
-* **Tasks**: Definied the train/evaluation lifecycle for each task. 
-* **Pipelines**: Definied the whole lifecyle for a task, from data to train.
+* **Models**: Defined different models for different tasks, the configuration system, and how to save/load them. ⬅️ **We are here!**
+* **Tasks**: Defined the train/evaluation lifecycle for each task. 
+* **Pipelines**: Defined the whole lifecycle for a task, from data to training.
 
   
+## Contributing
+Please contribute using [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow). Create a branch, add commits, and open a pull request.
+
+Please read [contributing](/docs/contributing.md) for details on our CODE OF CONDUCT, and the process for submitting pull requests to us.
+
+
+## License¶
+This project is licensed under the terms of the MIT license.
