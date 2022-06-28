@@ -1671,15 +1671,15 @@
 
   <h1>Configurations</h1>
 
-<p>Glasses uses a configuration system to record/share and load custom version of a specific architecture. </p>
+<p>Glasses uses a configuration system to record/share and load custom versions of a specific architecture. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Configurations in <code>glasses</code> are python <code>dataclasses</code>, thus at any point in time you can import them and know exacly what goes inside.</p>
+<p>Configurations in <code>glasses</code> are python <code>dataclasses</code>, thus at any point in time, you can import them and know exactly what goes inside.</p>
 </div>
 <p>The main idea behind our configuration system is to be an addition to the models, <strong>not a requirement</strong>. Any model in classes can be created by just importing it and passing the right parameters, they don't know about configurations.</p>
 <p>Saying that, why do we need configurations? </p>
 <p>Configurations are necessary when we need to store a specific set of parameters for a model. For example, if a model was trained on dataset <code>X</code> with ten classes, our configuration will contain all the parameters need to create that specific model.</p>
-<p>In most libraries, configuration are serialized files (e.g. <code>yml</code>), in glasses they are piece of code. This allow the user to take advante of it's IDE and see the parameters at any point in time.</p>
+<p>In most libraries, configurations are serialized files (e.g. <code>yml</code>), in glasses, they are code. This allows the user to take advantage of its IDE and see the parameters at any point in time.</p>
 <h2 id="basic-config">Basic <code>Config</code></h2>
 <p>Let's see how to create a basic config. First, we need a model</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
@@ -1703,7 +1703,7 @@
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="c1"># create a `MyModel` instance using `MyConfig`</span>
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="k">return</span> <span class="n">MyModel</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </code></pre></div>
-<p>We can now invoke the <code>build</code> method, that will create the model</p>
+<p>We can now invoke the <code>build</code> method, which will create the model</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">model</span><span class="p">:</span> <span class="n">MyModel</span> <span class="o">=</span> <span class="n">MyConfig</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># same as</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">model</span><span class="p">:</span> <span class="n">MyModel</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -1711,7 +1711,7 @@
 <p>Nothing very special.</p>
 <h2 id="nested-config">Nested <code>Config</code></h2>
 <p>Let's see how to create a <strong>nested config</strong>. </p>
-<p>Assume we have a model takes a backbone and idk has a fixed head.</p>
+<p>Assume we have a model that takes a backbone and has a fixed head.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -1725,7 +1725,7 @@
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># use last feature</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="k">return</span> <span class="n">out</span>
 </code></pre></div>
-<p>Our config will be nested, since <code>backbone</code> has it's own configuration.</p>
+<p>Our config will be nested since <code>backbone</code> has its own configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">glasses.config</span> <span class="kn">import</span> <span class="n">Config</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nd">@dataclass</span>
@@ -1765,20 +1765,20 @@
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">config</span> <span class="o">=</span> <span class="n">MyConfig</span><span class="p">(</span><span class="n">backbone_config</span><span class="o">=</span><span class="n">BackboneBConfig</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="o">...</span><span class="p">)</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">config</span><span class="o">.</span><span class="n">build</span><span class="p">()</span> <span class="c1"># build model with backbone B</span>
 </code></pre></div>
-The main advantage of the config system is when we need to save specific model version. For instance, assume I have trained <code>MyModel</code> with <code>BackboneA</code> on dataset <code>X</code>. It's config will look like:</p>
+The main advantage of the config system is when we need to save a specific model version. For instance, assume I have trained <code>MyModel</code> with <code>BackboneA</code> on dataset <code>X</code>. Its config will look like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">my_model_backbone_a_x</span> <span class="o">=</span> <span class="n">MyConfig</span><span class="p">(</span><span class="n">backbone_config</span><span class="o">=</span><span class="n">BackboneAConfig</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="n">channels</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-<p>Therefore, at any point in time I can recreate the model and load it's pretrained weights.</p>
+<p>Therefore, at any point in time, I can recreate the model and load its pretrained weights.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">my_model_backbone_a_x</span><span class="o">.</span><span class="n">build</span><span class="p">()</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="s2">&quot;/somewhere/my_model_backbone_a_x.pth&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>Now, what if I want to use <code>my_model_backbone_a_x</code> architecture but just change a small part? Maybe the numer of classes?</p>
+<p>Now, what if I want to use <code>my_model_backbone_a_x</code> architecture but just change a small part? Maybe the number of classes?</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># clone the config</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">config</span> <span class="o">=</span> <span class="n">MyConfig</span><span class="p">(</span><span class="o">**</span><span class="n">my_model_backbone_a_x</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">config</span><span class="o">.</span><span class="n">num_classes</span> <span class="o">=</span> <span class="mi">8</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># load the pretrained weight, with a different number of classes</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">config</span><span class="o">.</span><span class="n">build</span><span class="p">()</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="s2">&quot;/somewhere/my_model_backbone_a_x.pth&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>If you have any issue, feel free to open one on GitHub </p>
+<p>If you have any issues, feel free to open one on GitHub </p>
 
               
             </article>
