@@ -1,10 +1,11 @@
 import torch
 
 from glasses.models.vision.backbones.vit import ViTBackboneConfig
-from glasses.models.vision.classification import \
-    ModelForImageClassificationOutput
-from glasses.models.vision.classification.vit.config import (
-    ViTForImageClassificationConfig, ViTHeadConfig)
+from glasses.models.vision.image.classification import ModelForImageClassificationOutput
+from glasses.models.vision.image.classification.vit.config import (
+    ViTForImageClassificationConfig,
+    ViTHeadConfig,
+)
 from glasses.tests.model_tester import model_tester
 
 
