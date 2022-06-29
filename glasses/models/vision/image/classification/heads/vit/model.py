@@ -5,10 +5,10 @@ from torch import Tensor, nn
 
 from glasses.nn import Lambda
 
-from ..base import HeadForClassification
+from ..base import HeadForImageClassification
 
 
-class ViTHead(HeadForClassification):
+class ViTHead(HeadForImageClassification):
     POLICIES = ["token", "mean"]
 
     def __init__(

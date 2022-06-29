@@ -3,14 +3,14 @@ from typing import List
 from torch import Tensor, nn
 
 
-class HeadForClassification(nn.Module):
+class HeadForImageClassification(nn.Module):
     """Base class for classification heads
 
     Define a custom classification head
 
     ```python
 
-    class LinearHead(HeadForClassification):
+    class LinearHead(HeadForImageClassification):
         def __init__(self, num_classes: int, in_channels: int):
             super().__init__()
             self.pool = nn.AdaptiveAvgPool2d((1, 1))

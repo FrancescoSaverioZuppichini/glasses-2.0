@@ -2,10 +2,10 @@ from typing import List
 
 from torch import Tensor, nn
 
-from ..base import HeadForClassification
+from ..base import HeadForImageClassification
 
 
-class LinearHead(HeadForClassification):
+class LinearHead(HeadForImageClassification):
     def __init__(
         self,
         in_channels: int,

@@ -2,17 +2,17 @@ from typing import Any, List
 
 from torch import Tensor, nn
 
-from .outputs import ModelForClassificationOutput
+from .outputs import ModelForImageClassificationOutput
 
 
-class ModelForClassification(nn.Module):
+class ModelForImageClassification(nn.Module):
     """Base class for classification models
 
-    Define a custom classification model. It can be whatever you want, the only contrain is that it **must** return a `ModelForClassificationOutput`.
+    Define a custom classification model. It can be whatever you want, the only contrain is that it **must** return a `ModelForImageClassificationOutput`.
 
     ```python
 
-    class MyModelForClassification(ModelForClassification):
+    class MyModelForImageClassification(ModelForImageClassification):
         def __init__(self, in_channels: int, num_classes: int ):
             super().__init__()
             self.conv = nn.Conv2d(in_channels, 64, kernel_size=3)
@@ -20,7 +20,7 @@ class ModelForClassification(nn.Module):
             self.flat = nn.Flatten()
             self.fc = nn.Linear(64, num_classes)
 
-        def forward(self, pixel_values: Tensor) -> ModelForClassificationOutput:
+        def forward(self, pixel_values: Tensor) -> ModelForImageClassificationOutput:
             x = self.conv(pixel_values)
             x = self.pool(x)
             x = self.flat(x)
@@ -36,7 +36,7 @@ class ModelForClassification(nn.Module):
 
     from glasses.models.vision.backbones import ResNet
 
-    class ResNetForClassification(ModelForClassification):
+    class ResNetForImageClassification(ModelForImageClassification):
         def __init__(self, in_channels: int, ..., num_classes: int):
             super().__init__()
             self.backbone =ResNet(in_channels, ....)
@@ -44,7 +44,7 @@ class ModelForClassification(nn.Module):
             self.flat = nn.Flatten()
             self.fc = nn.Linear(64, num_classes)
 
-        def forward(self, pixel_values: Tensor) -> ModelForClassificationOutput:
+        def forward(self, pixel_values: Tensor) -> ModelForImageClassificationOutput:
             features = self.backbone(pixel_values)
             x = features[-1]
             x = self.pool(x)
@@ -54,11 +54,11 @@ class ModelForClassification(nn.Module):
 
     ```
 
-    In 99% of cases you will take advantage of the [`AnyModelForClassification`]() that allows you to mix on the fly any backbone and classification head in glasses.
+    In 99% of cases you will take advantage of the [`AnyModelForImageClassification`]() that allows you to mix on the fly any backbone and classification head in glasses.
 
     """
 
-    def forward(self, pixel_values: Tensor) -> ModelForClassificationOutput:
+    def forward(self, pixel_values: Tensor) -> ModelForImageClassificationOutput:
         """The forward method for classification head.
 
         Args:

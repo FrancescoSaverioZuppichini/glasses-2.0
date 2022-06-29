@@ -36,4 +36,9 @@ setup(
             "mkdocstrings-python",
         ],
     },
+    entry_points={
+        "console_scripts": [
+            "glasses-cli = cli.main:app",
+        ],
+    },
 )

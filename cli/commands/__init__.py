@@ -1,0 +1,1 @@
+from .add_new_model import add_new_model_command

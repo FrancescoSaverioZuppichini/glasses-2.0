@@ -6,5 +6,7 @@ class AutoModelBackbone(AutoModel):
     names_to_configs = get_names_to_configs_map("glasses.models.vision.backbones")
 
 
-class AutoModelForClassification(AutoModel):
-    names_to_configs = get_names_to_configs_map("glasses.models.vision.classification")
+class AutoModelForImageClassification(AutoModel):
+    names_to_configs = get_names_to_configs_map(
+        "glasses.models.vision.image.classification"
+    )

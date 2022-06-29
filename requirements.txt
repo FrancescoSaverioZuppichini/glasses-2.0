@@ -10,3 +10,4 @@ matplotlib
 einops
 rich
 huggingface_hub
+typer

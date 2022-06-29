@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from glasses.storage import LocalStorage
 from glasses.tests.fixtures import TestAutoModel
 

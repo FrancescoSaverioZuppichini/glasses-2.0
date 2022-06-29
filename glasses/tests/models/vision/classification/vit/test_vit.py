@@ -1,16 +1,15 @@
-from glasses.models.vision.classification.vit.config import (
-    ViTForClassificationConfig,
-    ViTHeadConfig,
-)
+import torch
 
 from glasses.models.vision.backbones.vit import ViTBackboneConfig
+from glasses.models.vision.classification import \
+    ModelForImageClassificationOutput
+from glasses.models.vision.classification.vit.config import (
+    ViTForImageClassificationConfig, ViTHeadConfig)
 from glasses.tests.model_tester import model_tester
-from glasses.models.vision.classification import ModelForClassificationOutput
-import torch
 
 
 def get_test_config(policy: str):
-    return ViTForClassificationConfig(
+    return ViTForImageClassificationConfig(
         backbone_config=ViTBackboneConfig(
             img_size=24,
             patch_size=8,
@@ -38,5 +37,5 @@ def test_vit():
         }
         output_shape_dict = {"logits": (2, config.head_config.num_classes)}
         model_tester(
-            config, input_dict, output_shape_dict, ModelForClassificationOutput
+            config, input_dict, output_shape_dict, ModelForImageClassificationOutput
         )
