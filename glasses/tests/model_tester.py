@@ -4,9 +4,8 @@ import torch
 from torch import Tensor, nn
 
 from glasses.config import Config
-from glasses.models.vision.image.classification.outputs import (
-    ModelForImageClassificationOutput,
-)
+from glasses.models.vision.image.classification.outputs import \
+    ModelForImageClassificationOutput
 
 
 def model_for_classification_output_test(

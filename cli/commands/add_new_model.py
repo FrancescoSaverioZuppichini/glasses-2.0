@@ -7,6 +7,7 @@ from typer import confirm
 
 from cli.questions import Ask, Choices, IfHasSelected, Questions, Select
 
+# This is how the input collected from the user looks like
 # {
 #   "model_name_lower_case": "my_model",
 #   "ModelNameCammelCase": "MyModel",
