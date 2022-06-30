@@ -24,7 +24,7 @@ setup(
     install_requires=install_requires,
     python_requires=">=3.9",
     extras_require={
-        "dev": ["pytest", "flake8", "cookiecutter==2.1.1"],
+        "dev": ["pytest", "flake8", "cookiecutter==2.1.1", "black==22.3.0"],
         "doc": [
             "markdown",
             "mkdocs-autorefs",
