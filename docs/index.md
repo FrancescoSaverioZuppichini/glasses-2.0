@@ -44,33 +44,6 @@ Almost all existing implementations of the most famous model are written with ve
 
 Most of them are missing a global structure, they used tons of code repetition, and they are not easily customizable and not tested. Thus, not easy to share and use by everybody.
 
-### Comparison with other libraries
-
-Where do *glasses* stand across this amazing work of open source?
-
-* [Transformers](https://github.com/huggingface/transformers) is not a model toolbox, therefore you cannot compose and share individual building components. Moreover, their philosophy of one model one file creates a lot of code repetition creating huge model files hard to read and understand.
-
-    Their testing approach, even if more robust than ours, increase the development time due to the amount of work required to make the model pass the tests.
-
-    Moreover, we are not motivated by financial gains. Thus, we don't follow the hype blindly.
-
-
-* [IceVision](https://airctic.com/0.12.0/) is a great library to train models in different vision tasks. The main difference between glasses is that they don't "own" the model, they rely on third-party libraries with custom adapters.
-
-    This strategy makes it easier to increase the pool of available models, but a minor change in one dependency may break the whole codebase. 
-
-    Our goal is also *to teach*, for this reason, we implemented all the models we use in a (hopefully) clear and concise way.
-
-
-* [OpenMMLab](https://github.com/open-mmlab) team has different amazing libraries for each vision task. However, they are fragmented and not easy to use due to the configuration system.
-
-    Their configuration system is not typed, therefore is impossible for the end-user to know what to place inside it. They used inheritance in configuration, making it challenging to have a full view of the system.
-
-    Finally, their `Trainer` is a closed box; very hard to extend. We will rely on [Lightning](https://www.pytorchlightning.ai/)
-
-
-* [Detectron2](https://github.com/facebookresearch/detectron2). If you were able to use it, you are my hero.
-
 
 
 Head over the [getting started](getting_started) guide

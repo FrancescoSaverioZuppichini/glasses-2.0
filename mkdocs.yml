@@ -26,7 +26,8 @@ theme:
 nav:
   - Glasses: index.md
   - Getting Started: getting-started.md
-  - Tutorial: tutorial/
+  - Tutorial - User Guide: tutorial/
+  - Alternatives, Inspiration and Comparisons: alternatives.md
   - Contributing: contributing.md
   - Code Reference: reference/
   - Models: models/
