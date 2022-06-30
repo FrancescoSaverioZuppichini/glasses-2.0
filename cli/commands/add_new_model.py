@@ -21,6 +21,7 @@ from cli.questions import Ask, Choices, IfHasSelected, Questions, Select
 # }
 
 GLASSES_DIR = Path("./glasses").absolute()
+TEMPLATE_DIR = Path("./templates").absolute()
 
 
 def get_base_class_from_context(context: Dict) -> str:
@@ -105,7 +106,7 @@ def add_new_model_command():
 
     output_dir = get_output_dir_from_context(context)
     generate_files(
-        "/home/zuppif/Documents/glasses-2.0/templates/adding_new_model/",
+        TEMPLATE_DIR / "adding_new_model",
         context={"cookiecutter": context},
         overwrite_if_exists=True,
         output_dir=output_dir,
