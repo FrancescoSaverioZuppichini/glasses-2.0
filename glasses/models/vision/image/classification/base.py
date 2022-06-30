@@ -8,7 +8,7 @@ from .outputs import ModelForImageClassificationOutput
 class ModelForImageClassification(nn.Module):
     """Base class for classification models
 
-    Define a custom classification model. It can be whatever you want, the only contrain is that it **must** return a `ModelForImageClassificationOutput`.
+    Define a custom image classification model. It can be anything you want, the only contrain is that it **must** return a `ModelForImageClassificationOutput`.
 
     ```python
 
