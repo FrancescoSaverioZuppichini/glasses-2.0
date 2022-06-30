@@ -20,7 +20,7 @@ We are lazy programmers! Keep the variables names short but meaningfull:
 - `Block`: we refer to `Block` to mean a minimum building block of a model.
 - `Stage`: a `Stage` is a collection of `Block`s 
 
-A model is always linked to a task. Therefore, each model follows the `<ModelName>For<TaskName>` naming convention. FOr example, `ResNetForClassification`.
+A model is always linked to a task. Therefore, each model follows the `<ModelName>For<TaskName>` naming convention. FOr example, `ResNetForImageClassification`.
 
 When you have something very simple, you can directly subclass `nn.Sequential` to avoid writing a trivial `forward` function.
 

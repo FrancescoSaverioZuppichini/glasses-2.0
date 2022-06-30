@@ -1,0 +1,5 @@
+{
+    "model_name_lower_case": "my_model",
+    "ModelNameCammelCase": "MyModel",
+    "model_checkpoint": "my_model_base"
+}

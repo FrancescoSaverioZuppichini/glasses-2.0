@@ -1,8 +1,8 @@
-from typing import Dict, List
+from typing import List
 
 import torch
-from einops import rearrange, reduce, repeat
-from einops.layers.torch import Rearrange, Reduce
+from einops import rearrange, repeat
+from einops.layers.torch import Rearrange
 from torch import Tensor, nn
 from torch.nn import functional as F
 

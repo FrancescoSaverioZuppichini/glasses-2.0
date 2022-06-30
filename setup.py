@@ -24,7 +24,7 @@ setup(
     install_requires=install_requires,
     python_requires=">=3.9",
     extras_require={
-        "dev": ["pytest", "flake8"],
+        "dev": ["pytest", "flake8", "cookiecutter==2.1.1", "black==22.3.0", "isort"],
         "doc": [
             "markdown",
             "mkdocs-autorefs",
@@ -34,6 +34,11 @@ setup(
             "mkdocs-gen-files",
             "mkdocs-literate-nav",
             "mkdocstrings-python",
+        ],
+    },
+    entry_points={
+        "console_scripts": [
+            "glasses-cli = cli.main:app",
         ],
     },
 )

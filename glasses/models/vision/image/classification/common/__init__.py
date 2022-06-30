@@ -1,0 +1,2 @@
+from .config import AnyModelForImageClassificationConfig
+from .model import AnyModelForImageClassification

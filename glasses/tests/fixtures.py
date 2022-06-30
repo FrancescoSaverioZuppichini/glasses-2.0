@@ -1,12 +1,11 @@
 from dataclasses import dataclass
+from functools import partial
 
 import pytest
 from torch import nn
 
 from glasses.config import Config
 from glasses.models.auto import AutoModel
-
-from functools import partial
 
 
 class TestModel(nn.Module):

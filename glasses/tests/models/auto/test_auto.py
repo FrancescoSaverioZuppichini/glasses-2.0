@@ -1,7 +1,7 @@
 from glasses.models.auto import AutoModel
 
 
-def test_auto_model(test_config, test_model_func, test_auto_model):
+def test_auto_model(test_config, test_model_func, test_auto_model: AutoModel):
 
     model = test_auto_model.from_name("test1")
 

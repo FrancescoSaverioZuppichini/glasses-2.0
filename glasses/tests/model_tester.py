@@ -1,19 +1,23 @@
-from glasses.config import Config
-from typing import Tuple, Dict, Optional, TypedDict
-from torch import Tensor, nn
+from typing import Dict, Optional, Tuple, TypedDict
+
 import torch
-from glasses.models.vision.classification.outputs import ModelForClassificationOutput
+from torch import Tensor, nn
+
+from glasses.config import Config
+from glasses.models.vision.image.classification.outputs import (
+    ModelForImageClassificationOutput,
+)
 
 
 def model_for_classification_output_test(
-    model_output_dict: ModelForClassificationOutput,
+    model_output_dict: ModelForImageClassificationOutput,
 ):
     logits = model_output_dict["logits"]
     logits.mean().backward()
 
 
 model_output_test_strategies = {
-    ModelForClassificationOutput: model_for_classification_output_test
+    ModelForImageClassificationOutput: model_for_classification_output_test
 }
 
 

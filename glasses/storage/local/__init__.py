@@ -1,8 +1,8 @@
-import json
+import pickle
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Tuple
-import pickle
+
 import torch
 
 from glasses.config import Config

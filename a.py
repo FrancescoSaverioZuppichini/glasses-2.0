@@ -1,8 +1,8 @@
 import torch
 
-from glasses.models.vision.auto import AutoModelForClassification
+from glasses.models.vision.auto import AutoModelForImageClassification
 
-model = AutoModelForClassification.from_name("vit_base_patch16_224")
+model = AutoModelForImageClassification.from_name("my_model_base")
 x = torch.randn(2, 3, 224, 224)
 d = model(x)
 
