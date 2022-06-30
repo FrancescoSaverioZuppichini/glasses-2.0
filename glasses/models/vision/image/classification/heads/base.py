@@ -36,4 +36,4 @@ class HeadForImageClassification(nn.Module):
         Returns:
             Tensor: The logits
         """
-        raise NotImplemented
+        raise NotImplementedError

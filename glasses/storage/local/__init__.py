@@ -1,4 +1,3 @@
-import json
 import pickle
 from dataclasses import dataclass
 from pathlib import Path

@@ -1,5 +1,3 @@
-from typing import Any, List
-
 from torch import Tensor, nn
 
 from .outputs import ModelForImageClassificationOutput
@@ -67,4 +65,4 @@ class ModelForImageClassification(nn.Module):
         Returns:
             Tensor: The logits.
         """
-        raise NotImplemented
+        raise NotImplementedError
