@@ -20,7 +20,7 @@ class LocalStorage(Storage):
     def __post_init__(self):
         self.root.mkdir(exist_ok=True)
 
-    def put(self, key: str, state_dict: StateDict, config: Dict):
+    def put(self, key: str, state_dict: StateDict, config: Config):
         save_dir = self.root / Path(key)
         save_dir.mkdir(exist_ok=True)
         model_save_path = save_dir / f"model.{self.fmt}"
