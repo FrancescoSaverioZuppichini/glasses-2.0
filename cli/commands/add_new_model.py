@@ -1,4 +1,5 @@
 from pathlib import Path
+from time import sleep
 from typing import Dict
 
 from cookiecutter.generate import generate_files
@@ -22,6 +23,7 @@ from cli.questions import Ask, Choices, IfHasSelected, Questions, Select
 
 GLASSES_DIR = Path("./glasses").absolute()
 TEMPLATE_DIR = Path("./templates").absolute()
+DOCS_DIR = Path("./docs").absolute()
 
 
 def get_base_class_from_context(context: Dict) -> str:
@@ -111,5 +113,12 @@ def add_new_model_command():
         overwrite_if_exists=True,
         output_dir=output_dir,
     )
+    # move the model doc file
+    model_doc_file_name = f"{context['model_name_lower_case']}.md"
+    model_doc_path = DOCS_DIR / "models" / model_doc_file_name
+    (output_dir / context["model_name_lower_case"] / model_doc_file_name).rename(
+        model_doc_path
+    )
 
     print(f"Your model has been created at {output_dir} 🎉")
+    print(f"Your model doc has been created at {model_doc_path} 📝")
