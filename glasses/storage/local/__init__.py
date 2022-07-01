@@ -23,8 +23,8 @@ class LocalStorage(Storage):
     def put(self, key: str, state_dict: StateDict, config: Config):
         save_dir = self.root / Path(key)
         save_dir.mkdir(exist_ok=True)
-        model_save_path = save_dir / f"model.{self.fmt}"
-        config_save_path = save_dir / f"config.pkl"
+        model_save_path = save_dir / "model.{self.fmt}"
+        config_save_path = save_dir / "config.pkl"
 
         if key not in self or self.override:
             torch.save(state_dict, model_save_path)
@@ -35,8 +35,8 @@ class LocalStorage(Storage):
 
     def get(self, key: str) -> Tuple[StateDict, Config]:
         save_dir = self.root / Path(key)
-        model_save_path = save_dir / f"model.{self.fmt}"
-        config_save_path = save_dir / f"config.pkl"
+        model_save_path = save_dir / "model.{self.fmt}"
+        config_save_path = save_dir / "config.pkl"
         state_dict = torch.load(model_save_path)
         with open(config_save_path, "rb") as f:
             config = pickle.load(f)

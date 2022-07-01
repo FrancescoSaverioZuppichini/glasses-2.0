@@ -51,4 +51,4 @@ class Config:
     """
 
     def build(self) -> nn.Module:
-        raise NotImplemented
+        raise NotImplementedError
