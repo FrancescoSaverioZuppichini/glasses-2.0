@@ -1,8 +1,8 @@
 ## TODO
-- [ ] cookiecutter 
-- [ ] pretrained models - fra
-  - [ ] saving
-  - [ ] loading 
+- [x] cookiecutter 
+- [x] pretrained models - fra
+  - [x] saving
+  - [x] loading 
 - [ ] doc for auto stuff
 - [ ] doc how to add a model
 - [ ] model page template
