@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Dict, List, Tuple
-
-from torch import nn
+from typing import List, Tuple
 
 from glasses.config import Config
 from glasses.types import StateDict
@@ -9,11 +7,11 @@ from glasses.types import StateDict
 
 class Storage(ABC):
     @abstractmethod
-    def put(self, state_dict: StateDict, config: Dict):
+    def put(self, state_dict: StateDict, config: Config):
         pass
 
     @abstractmethod
-    def get(self, key: str) -> Tuple[StateDict, Dict]:
+    def get(self, key: str) -> Tuple[StateDict, Config]:
         pass
 
     @property

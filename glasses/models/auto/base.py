@@ -46,8 +46,9 @@ class AutoModel:
         cls, name: str, config: Optional[Config] = None, storage: Storage = None
     ) -> nn.Module:
         storage = LocalStorage() if storage is None else storage
-        model = cls.from_name(name) if config is None else config.build()
-        state_dict, _ = storage.get(name)
+        state_dict, loaded_config = storage.get(name)
+        config = loaded_config if config is None else config
+        model = config.build()
         try:
             model.load_state_dict(state_dict)
         except RuntimeError as e:
