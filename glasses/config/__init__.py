@@ -2,6 +2,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from rich import box
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
 from torch import nn
 
 
@@ -52,3 +56,24 @@ class Config:
 
     def build(self) -> nn.Module:
         raise NotImplementedError
+
+    def panel(self) -> Panel:
+        table = Table(
+            title=self.__class__.__name__,
+            box=box.SIMPLE,
+            show_header=False,
+            highlight=True,
+        )
+        for key, val in self.__dict__.items():
+            # if one field is a Config instance
+            if isinstance(val, Config):
+                table.add_row("", "")
+                table.add_row(f"[bold]{key}", val.panel())
+            else:
+                table.add_row(key, str(val))
+
+        return Panel(table)
+
+    def summary(self):
+        console = Console()
+        console.print(self.panel(), justify="left")
