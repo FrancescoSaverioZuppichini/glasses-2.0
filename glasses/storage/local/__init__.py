@@ -1,7 +1,7 @@
 import pickle
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import List, Tuple
 
 import torch
 
@@ -23,7 +23,7 @@ class LocalStorage(Storage):
     def put(self, key: str, state_dict: StateDict, config: Config):
         save_dir = self.root / Path(key)
         save_dir.mkdir(exist_ok=True)
-        model_save_path = save_dir / "model.{self.fmt}"
+        model_save_path = save_dir / f"model.{self.fmt}"
         config_save_path = save_dir / "config.pkl"
 
         if key not in self or self.override:
@@ -35,7 +35,7 @@ class LocalStorage(Storage):
 
     def get(self, key: str) -> Tuple[StateDict, Config]:
         save_dir = self.root / Path(key)
-        model_save_path = save_dir / "model.{self.fmt}"
+        model_save_path = save_dir / f"model.{self.fmt}"
         config_save_path = save_dir / "config.pkl"
         state_dict = torch.load(model_save_path)
         with open(config_save_path, "rb") as f:

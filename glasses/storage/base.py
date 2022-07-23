@@ -7,7 +7,7 @@ from glasses.types import StateDict
 
 class Storage(ABC):
     @abstractmethod
-    def put(self, state_dict: StateDict, config: Config):
+    def put(self, key: str, state_dict: StateDict, config: Config):
         pass
 
     @abstractmethod
