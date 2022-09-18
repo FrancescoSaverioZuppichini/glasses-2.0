@@ -30,7 +30,7 @@ for path in sorted(Path(src_dir).rglob("*.py")):
             ident = ".".join(parts)
             to_write = f"::: {ident}"
             to_write += f"\n    rendering:"
-            to_write += f"\n        show_if_no_docstring: true"
+            to_write += f"\n        show_if_no_docstring: false"
             fd.write(to_write)
 
         mkdocs_gen_files.set_edit_path(full_doc_path, path)

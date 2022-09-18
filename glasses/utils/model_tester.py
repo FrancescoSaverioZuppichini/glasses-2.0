@@ -1,12 +1,11 @@
-from typing import Dict, Optional, Tuple, TypedDict
+from typing import Callable, Dict, Optional, Tuple, TypedDict
 
 import torch
 from torch import Tensor, nn
 
 from glasses.config import Config
-from glasses.models.vision.image.classification.outputs import (
-    ModelForImageClassificationOutput,
-)
+from glasses.models.vision.image.classification.outputs import \
+    ModelForImageClassificationOutput
 
 
 def model_for_classification_output_test(
@@ -54,8 +53,24 @@ def model_tester(
     input_dict: Dict[str, Tensor],
     output_shape_dict: Dict[str, Tuple[int]],
     output_dict_type: TypedDict,
+    output_test_strategy: Optional[Callable[[TypedDict],None]] = None,
     output_equivalence_dict: Optional[Dict[str, Tensor]] = None,
 ):
+    """
+    This functions tests the mdoel using different checks. In order:
+    
+    - check that model's outputs shapes matched `output_shape_dict`
+    - check that the model can be trained, we use `output_dict_type` to know how to run output's specific tests. For example, for image classification you should pass `output_dict_type=ModelForImageClassificationOutput` and we will try to run `outputs["logits"].mean().backward()`
+    - optionally, if `output_equivalence_dict` we will check that model's outputs match
+
+    Args:
+        config (Config): Configuration we will use to build the model.
+        input_dict (Dict[str, Tensor]): Dictionary containing the inputs for the model. E.g. `{ "pixel_values" : torch.randn((1, 3, 224, 224))}`
+        output_shape_dict (Dict[str, Tuple[int]]): Dictionary containing the expected shaped in the output. E.g. ` {"logits": (1, 1000)}`
+        output_dict_type (TypedDict): The type of output, e.g. ModelForImageClassificationOutput](). Used to now which test strategy to run, based on the type we know how to test it. Defaults to None.
+        output_test_strategy (Optional[Callable[[TypedDict]]], optional): If passed, we will use this strategy instead.
+        output_equivalence_dict (Optional[Dict[str, Tensor]], optional): If passes, we will check that the model's output are equal to the values inside it. Defaults to None.
+    """
     with torch.no_grad():
         # we are able to create the model from a config
         model = config.build().eval()
@@ -64,10 +79,13 @@ def model_tester(
     model = model.train()
     model_output_dict = model(**input_dict)
     # we are able to check that the model can be trained
-    model_output_test_strategies[output_dict_type](model_output_dict)
+    output_test_strategy = output_test_strategy
+    if output_test_strategy is None:
+        output_test_strategy =  model_output_test_strategies[output_dict_type]
+    output_test_strategy(model_output_dict)
     check_grad_exists(model)
     # we are able to check outputs equivalence if passed
     if output_equivalence_dict:
-        # here run the model with a known input
-        # [TODO]
-        check_output_equivalence(model_output_dict, output_equivalence_dict)
+        with torch.no_grad():
+            # here run the model with a known input
+            check_output_equivalence(model_output_dict, output_equivalence_dict)

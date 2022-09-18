@@ -5,6 +5,11 @@
             "language": "markdown",
             "scheme": "file",
             "pattern": "docs/index.md"
+        },
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "docs/tutorial/tests.md"
         }
     ]
 }
