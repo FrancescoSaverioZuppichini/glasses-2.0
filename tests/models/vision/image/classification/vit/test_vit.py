@@ -6,7 +6,7 @@ from glasses.models.vision.image.classification.vit.config import (
     ViTForImageClassificationConfig,
     ViTHeadConfig,
 )
-from glasses.tests.model_tester import model_tester
+from tests.model_tester import model_tester
 
 
 def get_test_config(policy: str):

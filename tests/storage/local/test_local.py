@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from glasses.storage import LocalStorage
-from glasses.tests.fixtures import TestAutoModel
+from tests.fixtures import TestAutoModel
 
 
 def test_local(tmp_path: Path, test_auto_model: TestAutoModel):
