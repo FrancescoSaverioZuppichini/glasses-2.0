@@ -4,8 +4,9 @@ import torch
 from torch import Tensor, nn
 
 from glasses.config import Config
-from glasses.models.vision.image.classification.outputs import \
-    ModelForImageClassificationOutput
+from glasses.models.vision.image.classification.outputs import (
+    ModelForImageClassificationOutput,
+)
 
 
 def model_for_classification_output_test(
@@ -53,12 +54,12 @@ def model_tester(
     input_dict: Dict[str, Tensor],
     output_shape_dict: Dict[str, Tuple[int]],
     output_dict_type: TypedDict,
-    output_test_strategy: Optional[Callable[[TypedDict],None]] = None,
+    output_test_strategy: Optional[Callable[[TypedDict], None]] = None,
     output_equivalence_dict: Optional[Dict[str, Tensor]] = None,
 ):
     """
     This functions tests the mdoel using different checks. In order:
-    
+
     - check that model's outputs shapes matched `output_shape_dict`
     - check that the model can be trained, we use `output_dict_type` to know how to run output's specific tests. For example, for image classification you should pass `output_dict_type=ModelForImageClassificationOutput` and we will try to run `outputs["logits"].mean().backward()`
     - optionally, if `output_equivalence_dict` we will check that model's outputs match
@@ -81,7 +82,7 @@ def model_tester(
     # we are able to check that the model can be trained
     output_test_strategy = output_test_strategy
     if output_test_strategy is None:
-        output_test_strategy =  model_output_test_strategies[output_dict_type]
+        output_test_strategy = model_output_test_strategies[output_dict_type]
     output_test_strategy(model_output_dict)
     check_grad_exists(model)
     # we are able to check outputs equivalence if passed

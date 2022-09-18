@@ -4,8 +4,7 @@ from shutil import rmtree
 from typing import Dict, List, Tuple
 
 import requests
-from huggingface_hub.hf_api import (ENDPOINT, HfFolder, create_repo,
-                                    upload_folder)
+from huggingface_hub.hf_api import ENDPOINT, HfFolder, create_repo, upload_folder
 from huggingface_hub.repository import Repository
 from requests import Response
 
