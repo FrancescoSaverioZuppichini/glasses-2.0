@@ -1,26 +1,27 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Tuple
 from shutil import rmtree
-from functools import cache
+from typing import Dict, List, Tuple
+
+import requests
+from huggingface_hub.hf_api import ENDPOINT, HfFolder, create_repo, upload_folder
+from huggingface_hub.repository import Repository
+from requests import Response
+
 from glasses.config import Config
 from glasses.types import StateDict
 
 from ..base import Storage
 from ..local import LocalStorage
-import requests
-from requests import Response
-from huggingface_hub.hf_api import create_repo, upload_folder, HfFolder, ENDPOINT
-from huggingface_hub.repository import Repository
 
 
 @dataclass
-class HuggingFaceStorage(Storage):
+class HuggingFaceStorage(LocalStorage):
     organization: str = "glasses"
 
     def __post_init__(self):
         self._hf_folder = HfFolder()
-        self._local_storage = LocalStorage()
+        self._local_storage = LocalStorage(self.root, self.override, self.fmt)
 
     def put(self, key: str, state_dict: StateDict, config: Config):
         repo_id = f"{self.organization}/{key}"
