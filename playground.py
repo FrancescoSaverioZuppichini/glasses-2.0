@@ -1,11 +1,11 @@
+from glasses.models.vision.auto import AutoModelBackbone
 from glasses.storage.huggingface import HuggingFaceStorage
+from glasses.storage.local import LocalStorage
 
 # create_repo(
 #     repo_id="glasses/hey", token="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", exist_ok=True
 # )
 
-from glasses.models.vision.auto import AutoModelBackbone
-from glasses.storage.local import LocalStorage
 
 key = "vit_small_patch16_224"
 config = AutoModelBackbone.get_config_from_name(key)

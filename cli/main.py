@@ -1,4 +1,5 @@
 import typer
+
 from .commands import add_new_model_command
 
 app = typer.Typer()
